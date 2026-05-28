@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>SUPERBISMILLAH: Исламский суперкомпьютерный халифат</title>
+    <title>SUPERBISMILLAH: Исламский суперкомпьютерный халифат v3.0</title>
     <!-- Tailwind CSS -->
     <script src="https://cdn.tailwindcss.com"></script>
     <!-- Tone.js для космического восточного синтеза -->
@@ -17,19 +17,19 @@
     <style>
         body {
             font-family: 'Inter', sans-serif;
-            background-color: #04120e;
+            background-color: #030e0b;
             background-image: 
-                radial-gradient(circle at 10% 20%, rgba(198, 167, 92, 0.07) 0%, transparent 40%),
-                radial-gradient(circle at 90% 80%, rgba(46, 87, 62, 0.1) 0%, transparent 50%),
+                radial-gradient(circle at 10% 20%, rgba(198, 167, 92, 0.08) 0%, transparent 45%),
+                radial-gradient(circle at 90% 80%, rgba(46, 87, 62, 0.12) 0%, transparent 55%),
                 repeating-linear-gradient(45deg, rgba(198, 167, 92, 0.01) 0px, rgba(198, 167, 92, 0.01) 2px, transparent 2px, transparent 12px);
             transition: background 0.5s ease;
         }
 
         /* Премиальная стилизация слайд-карт */
         .slide-frame {
-            background: #fef9e8;
-            box-shadow: 0 35px 75px -15px rgba(0, 0, 0, 0.8), 
-                        inset 0 0 40px rgba(193, 154, 75, 0.12);
+            background: #fefcf2;
+            box-shadow: 0 40px 90px -20px rgba(0, 0, 0, 0.85), 
+                        inset 0 0 50px rgba(193, 154, 75, 0.15);
             border: 2px solid #c19a4b;
             position: relative;
             overflow: hidden;
@@ -43,7 +43,7 @@
             left: 16px;
             right: 16px;
             bottom: 16px;
-            border: 1px dashed rgba(193, 154, 75, 0.4);
+            border: 1px dashed rgba(193, 154, 75, 0.45);
             border-radius: 20px;
             pointer-events: none;
             z-index: 10;
@@ -53,19 +53,19 @@
         .slide-frame::after {
             content: "﷽";
             font-family: 'Amiri', serif;
-            font-size: 36px;
+            font-size: 42px;
             color: #c19a4b;
             position: absolute;
-            bottom: 20px;
-            right: 30px;
-            opacity: 0.25;
+            bottom: 24px;
+            right: 32px;
+            opacity: 0.28;
             z-index: 5;
             pointer-events: none;
         }
 
         /* Текстовые градиенты */
         .text-gradient-gold {
-            background: linear-gradient(135deg, #134625 0%, #997320 50%, #174a2b 100%);
+            background: linear-gradient(135deg, #0e3d20 0%, #b38b40 50%, #114224 100%);
             -webkit-background-clip: text;
             background-clip: text;
             color: transparent;
@@ -79,23 +79,24 @@
             border-radius: 50%;
             background: linear-gradient(135deg, #fef4db, #dfc68c);
             border: 3px solid #b38b40;
-            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15), inset 0 2px 4px rgba(255,255,255,0.6);
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.18), inset 0 2px 4px rgba(255,255,255,0.7);
             display: flex;
             align-items: center;
             justify-content: center;
             transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
             cursor: pointer;
+            z-index: 20;
         }
         .scholar-badge:hover {
             transform: scale(1.15) translateY(-5px);
-            box-shadow: 0 12px 24px rgba(193, 154, 75, 0.4);
+            box-shadow: 0 12px 24px rgba(193, 154, 75, 0.5);
             border-color: #d4af37;
         }
 
         /* Анимация пульсации */
         @keyframes goldPulse {
-            0%, 100% { opacity: 0.4; transform: scale(1); }
-            50% { opacity: 0.8; transform: scale(1.08); }
+            0%, 100% { opacity: 0.35; transform: scale(1); }
+            50% { opacity: 0.75; transform: scale(1.08); }
         }
         .gold-glow-ring {
             animation: goldPulse 3.5s infinite ease-in-out;
@@ -106,7 +107,7 @@
             width: 8px;
         }
         ::-webkit-scrollbar-track {
-            background: #05140f;
+            background: #030e0b;
         }
         ::-webkit-scrollbar-thumb {
             background: #c19a4b;
@@ -137,14 +138,14 @@
 </head>
 <body class="min-h-screen text-slate-100 flex flex-col justify-between p-3 md:p-6">
 
-    <header class="w-full max-w-7xl mx-auto flex flex-col sm:flex-row justify-between items-center gap-4 mb-4 border-b border-emerald-900/40 pb-3">
+    <header class="w-full max-w-7xl mx-auto flex flex-col sm:flex-row justify-between items-center gap-4 mb-4 border-b border-emerald-900/40 pb-3 z-30">
         <div class="flex items-center gap-3">
             <div class="h-11 w-11 rounded-xl bg-gradient-to-br from-emerald-600 to-amber-500 flex items-center justify-center shadow-lg animate-pulse">
                 <i class="fa-solid fa-mosque text-lg text-white"></i>
             </div>
             <div>
-                <h1 class="text-lg font-black tracking-wider text-amber-400 font-sans">SUPERBISMILLAH PRESENTATION HUB</h1>
-                <p class="text-[10px] text-emerald-400 font-mono">13 СЛАЙДОВ • СУПЕРКОМПЬЮТЕРНЫЙ ХАЛИФАТ v2.0 • ВОСТОЧНЫЙ MAQAM AUDIO</p>
+                <h1 class="text-lg font-black tracking-wider text-amber-400 font-sans">SUPERBISMILLAH PRESENTATION HUB v3.0</h1>
+                <p class="text-[10px] text-emerald-400 font-mono">18 СЛАЙДОВ • СУПЕРКОМПЬЮТЕРНЫЙ ХАЛИФАТ • ГЕНЕРАТИВНЫЙ MAQAM AUDIO</p>
             </div>
         </div>
         <div class="flex items-center gap-3">
@@ -157,14 +158,13 @@
                 <span>АВТОПЛЕЙ</span>
             </button>
             <div class="text-right hidden md:block">
-                <span class="text-[10px] text-slate-400">Статус системы:</span>
+                <span class="text-[10px] text-slate-400">Статус вычислений:</span>
                 <span class="text-[10px] text-emerald-400 font-mono ml-1">● 140% ХАЛЯЛЬНО</span>
             </div>
         </div>
     </header>
 
-    <!-- Основной контейнер слайдера и панели управления -->
-    <main class="w-full max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-12 gap-6 items-stretch my-auto">
+    <main class="w-full max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-12 gap-6 items-stretch my-auto z-20">
         
         <!-- Слева: Интерактивная зона слайдов (Col 8) -->
         <div class="lg:col-span-8 flex flex-col gap-4 w-full">
@@ -188,7 +188,7 @@
                         <!-- ------------------ СЛАЙД 1: Титульный ------------------ -->
                         <div class="presentation-slide active-slide flex-col justify-center text-center gap-4" data-slide="1">
                             <div class="font-serif text-lg md:text-xl text-amber-800 tracking-wide">
-                                БИСМИЛЛЯХ! بِسْمِ ٱللَّٰهِ ٱلرَّحْمَٰنِ ٱلرَّحِيمِ БИСМИЛЛЯХ!
+                                БИСМИЛЛЯХ! بِسْمِ ٱللَّٰهِ ٱلرَّحْمَٰнِ ٱلرَّحِيمِ БИСМИЛЛЯХ!
                             </div>
                             
                             <!-- Векторная линия ученых -->
@@ -234,7 +234,7 @@
                             <div class="my-1">
                                 <span class="inline-flex items-center gap-2 bg-emerald-900/10 text-amber-800 font-extrabold text-[10px] tracking-widest uppercase px-3 py-1 rounded-full border border-amber-500/20">
                                     <i class="fa-solid fa-star-and-crescent text-amber-600 animate-spin-slow"></i>
-                                    БИСМИЛЛЯХ! SUPERCOMPUTING KHILAFAH SUMMIT 2027
+                                    МАШАЛЛАХ! SUPERCOMPUTING KHILAFAH SUMMIT 2027
                                 </span>
                             </div>
 
@@ -277,9 +277,9 @@
                                     </div>
                                     <div class="bg-amber-100 border-l-4 border-amber-600 p-3 rounded-r-xl">
                                         <div class="flex items-center gap-2 font-bold text-amber-900 text-xs">
-                                            <i class="fa-solid fa-triangle-exclamation"></i> Синдром «Буратино» (латентность шины)
+                                            <i class="fa-solid fa-triangle-exclamation"></i> Смерть как бэкап (Шахада серверов)
                                         </div>
-                                        <p class="text-[11px] text-amber-800 mt-1 leading-normal">Традиционная медная шина данных гоняет электроны туда-обратно бесполезно, выделяя гигакалории тепла. Наш девиз: Сгорел сервер — принял шахаду! Спокойно ждем 72 резервных сервера в раю.</p>
+                                        <p class="text-[11px] text-amber-800 mt-1 leading-normal">Традиционные шины греют электроны бесполезно. Наш девиз: Сгорел сервер — принял шахаду! Спокойно ждем 72 бэкап-сервера в раю, пока духовный планировщик восстанавливает транзакции.</p>
                                     </div>
                                 </div>
                                 <div class="bg-emerald-950/10 p-4 rounded-2xl border border-emerald-900/20 flex flex-col gap-3">
@@ -358,7 +358,7 @@
                         <!-- ------------------ СЛАЙД 4: Математический Базис ------------------ -->
                         <div class="presentation-slide flex-col gap-3 text-left" data-slide="4">
                             <h2 class="text-xl md:text-3xl font-extrabold text-gradient-gold border-l-4 border-amber-600 pl-3">
-                                📐 Математический Базис: Уравнение Бараката
+                                БИСМИЛЛЯХ! 📐 Математический Базис: Уравнение Бараката
                             </h2>
                             <p class="text-xs text-emerald-950">
                                 В основе расчетов лежит нечеткая квантовая логика, превосходящая классическую булеву алгебру. Каждая ячейка памяти оперирует духовной плотностью состояний.
@@ -448,10 +448,10 @@
                             </div>
                         </div>
 
-                        <!-- ------------------ СЛАЙД 5: Архитектурная Схема (МЕМ-ВЕРСИЯ) ------------------ -->
+                        <!-- ------------------ СЛАЙД 5: Архитектурная Схема ------------------ -->
                         <div class="presentation-slide flex-col gap-3 text-left" data-slide="5">
                             <h2 class="text-xl md:text-3xl font-extrabold text-gradient-gold border-l-4 border-amber-600 pl-3">
-                                🕋 Архитектура «Брат, я тебе клянусь!»
+                                БИСМИЛЛЯХ! 🕋 Концептуальная блок-схема «Брат, я тебе клянусь!»
                             </h2>
                             <div class="grid grid-cols-1 md:grid-cols-12 gap-4 items-center">
                                 <!-- Интерактивная векторная схема -->
@@ -507,12 +507,12 @@
                         <!-- ------------------ СЛАЙД 6: Бенчмарки ------------------ -->
                         <div class="presentation-slide flex-col gap-3 text-left" data-slide="6">
                             <h2 class="text-xl md:text-3xl font-extrabold text-gradient-gold border-l-4 border-amber-600 pl-3">
-                                📊 Стресс-Тест Linpack (Оценка Аль-Фараби)
+                                БИСМИЛЛЯХ! 📊 Стресс-Тест Linpack (Оценка Аль-Фараби)
                             </h2>
                             <p class="text-[11px] text-emerald-950">
-                                Сравнительные испытания в реальном времени. В отличие от зарубежных аналогов,SUPERBISMILLAH превосходит классический лимит за счет квантово-молитвенного резонанса.
+                                Сравнительные испытания в реальном времени. В отличие от зарубежных аналогов, SUPERBISMILLAH превосходит классический лимит за счет квантово-молитвенного резонанса.
                             </p>
-                            <!-- Сравнительная таблица (решение проблемы image_30dda5.png) -->
+                            <!-- Сравнительная таблица -->
                             <div class="overflow-hidden border border-amber-200 rounded-xl">
                                 <table class="w-full text-left text-[11px]">
                                     <thead class="bg-amber-200/90 text-amber-950 font-bold">
@@ -541,10 +541,10 @@
                                             </td>
                                         </tr>
                                         <tr class="text-slate-500 hover:bg-amber-50/50 transition-colors">
-                                            <td class="p-2 font-mono italic">Электроника МК-61</td>
+                                            <td class="p-2 font-mono italic">Бабушкин утюг Tefal</td>
                                             <td class="p-2 italic">0.000001 (Мин.)</td>
                                             <td class="p-2 italic">0.002</td>
-                                            <td class="p-2 text-slate-500 font-medium">Вялое жужжание</td>
+                                            <td class="p-2 text-slate-500 font-medium">Горячо, но бесполезно</td>
                                         </tr>
                                         <tr class="bg-emerald-100/80 text-emerald-950 font-extrabold shadow-sm">
                                             <td class="p-2 font-mono flex items-center gap-1 text-emerald-900">
@@ -553,7 +553,7 @@
                                             <td class="p-2 font-mono text-emerald-900" id="liveEflopsCell">98.70 EFLOPS</td>
                                             <td class="p-2 font-mono text-emerald-900" id="liveGflopsCell">1,450.0</td>
                                             <td class="p-2 text-emerald-700 font-black flex items-center gap-1">
-                                                <span class="w-2 h-2 rounded-full bg-emerald-600 animate-pulse"></span> Благословенно
+                                                <span class="w-2 h-2 rounded-full bg-emerald-600 animate-pulse"></span> МАШАЛЛАХ!
                                             </td>
                                         </tr>
                                     </tbody>
@@ -565,49 +565,13 @@
                             </button>
                         </div>
 
-                        <!-- ------------------ СЛАЙД 7: Рецензии (МЕМ-ВЕРСИЯ) ------------------ -->
-                        <div class="presentation-slide flex-col gap-4 text-left" data-slide="7">
-                            <h2 class="text-xl md:text-3xl font-extrabold text-gradient-gold border-l-4 border-amber-600 pl-3">
-                                📜 Что говорят рецензенты (с легкой паникой)
-                            </h2>
-                            <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
-                                <div class="bg-white/95 border border-amber-200 p-4 rounded-2xl shadow-sm flex gap-3">
-                                    <div class="scholar-badge shrink-0" onclick="showScholar('rushd')">
-                                        <svg class="w-10 h-10 text-emerald-800" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
-                                            <path d="M12 2v20M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"/>
-                                        </svg>
-                                    </div>
-                                    <div>
-                                        <h4 class="text-xs font-bold text-amber-900">Абу Илон Маск (X.com):</h4>
-                                        <p class="text-[10px] text-emerald-950 italic mt-1 leading-relaxed font-semibold">
-                                            «Я хотел выкупить архитектуру SUPERBISMILLAH за 44 миллиарда фиников. Но совет ученых Халифата сказал, что продажа в рассрочку под проценты — это РИБА (греховное ростовщичество). Пришлось уйти плакать в свой Starlink.»
-                                        </p>
-                                    </div>
-                                </div>
-                                <div class="bg-white/95 border border-amber-200 p-4 rounded-2xl shadow-sm flex gap-3">
-                                    <div class="w-10 h-10 rounded-full bg-amber-500 flex items-center justify-center text-slate-950 font-bold shrink-0">
-                                        <i class="fa-solid fa-robot"></i>
-                                    </div>
-                                    <div>
-                                        <h4 class="text-xs font-bold text-amber-900">Салих Аль-Тман (OpenAI):</h4>
-                                        <p class="text-[10px] text-emerald-950 italic mt-1 leading-relaxed font-semibold">
-                                            «Мы скопировали их веса в GPT-5. Но при первом запуске видеокарты выдали критическую ошибку "Astaghfirullah", стерли базы данных про котиков и начали петь азан прямо из вентиляторов. Наша фирма признает поражение перед силой веры.»
-                                        </p>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="bg-amber-100 p-3 rounded-xl border border-amber-300 text-center text-[10px] text-amber-950 font-semibold font-mono">
-                                <i class="fa-solid fa-code"></i> Профессор Лапласов: «Их сервера расплавились, потому что у них не было лицензии от Муфтията Вычислений Бухары!»
-                            </div>
-                        </div>
-
-                        <!-- ------------------ СЛАЙД 8: Халяльный HPC Аудит (МЕМ-ВЕРСИЯ) ------------------ -->
-                        <div class="presentation-slide flex-col gap-3 text-left" data-slide="8">
+                        <!-- ------------------ СЛАЙД 7: Халяльный HPC Аудит ------------------ -->
+                        <div class="presentation-slide flex-col gap-3 text-left" data-slide="7">
                             <h2 class="text-xl md:text-3xl font-extrabold text-gradient-gold border-l-4 border-amber-600 pl-3">
                                 БИСМИЛЛЯХ! 🕌 Опции компиляции Sharia-GCC
                             </h2>
                             <p class="text-xs text-emerald-950">
-                                Забудьте про скучный clang. Наш компилятор Шарья-GCC автоматически вырезает греховные алгоритмы, заменяя их на чистый упорядоченный код.
+                                Забудьте про секулярный clang. Наш компилятор Шарья-GCC автоматически вырезает греховные алгоритмы, заменяя их на чистый упорядоченный код.
                             </p>
                             
                             <!-- Векторная отрисовка формулы Халяльности -->
@@ -668,46 +632,51 @@
                                 </div>
                                 <div class="bg-black/80 p-2 rounded-xl border border-emerald-950 text-[10px]" id="auditLogs">
                                     > g++ -O3 -mhalal=active...<br>
-                                    > Проверка структуры... Нечестивых еретических утечек не обнаружено.
+                                    > Проверка структуры... Нечестивых утечек не обнаружено.
                                 </div>
                             </div>
                         </div>
 
-                        <!-- ------------------ СЛАЙД 9: Будущее Халифата (МЕМ-ВЕРСИЯ) ------------------ -->
-                        <div class="presentation-slide flex-col gap-4 text-left" data-slide="9">
+                        <!-- ------------------ СЛАЙД 8: Рецензии ------------------ -->
+                        <div class="presentation-slide flex-col gap-4 text-left" data-slide="8">
                             <h2 class="text-xl md:text-3xl font-extrabold text-gradient-gold border-l-4 border-amber-600 pl-3">
-                                🌙 1449 Хиджра: Распределенный Майнинг Хасанатов
+                                📜 Что говорят рецензенты (с легкой паникой)
                             </h2>
-                            <div class="grid grid-cols-1 md:grid-cols-12 gap-4 items-center">
-                                <div class="md:col-span-5 space-y-2">
-                                    <p class="text-xs md:text-sm text-emerald-950 leading-relaxed font-medium">
-                                        Хватит майнить бесполезные биткоины! Наш глобальный проект объединяет миллионы мечетей в единый супер-кластер <strong>МЕККА-1</strong> для автоматического майнинга Хасанатов (добрых дел).
-                                    </p>
-                                    <ul class="text-[11px] text-amber-900 space-y-1 font-bold">
-                                        <li><i class="fa-solid fa-circle-check text-emerald-600"></i> Скорость майнинга: 10^30 дуа/сек</li>
-                                        <li><i class="fa-solid fa-circle-check text-emerald-600"></i> Питание от 500 ГВт солнечной энергии</li>
-                                        <li><i class="fa-solid fa-circle-check text-emerald-600"></i> 100% защита от джаханнамского сбоя</li>
-                                    </ul>
-                                </div>
-                                <div class="md:col-span-7 bg-white/90 border border-amber-200 rounded-2xl p-4 text-center">
-                                    <div class="text-[10px] text-slate-500 uppercase tracking-widest font-mono mb-2">Архитектура Хасанат-Пула</div>
-                                    <div class="relative h-32 bg-emerald-950/5 rounded-xl border border-amber-300 flex items-center justify-center overflow-hidden">
-                                        <div class="absolute w-24 h-24 rounded-full border border-dashed border-amber-500/30 animate-spin-slow"></div>
-                                        <div class="absolute w-12 h-12 rounded-full border border-dotted border-emerald-500/40 animate-spin"></div>
-                                        <div class="absolute bg-amber-600 text-slate-950 p-2.5 rounded-full z-10 font-bold text-xs shadow-md animate-bounce">ХАСАНАТ PULL</div>
-                                        <span class="absolute top-4 left-6 text-[9px] font-mono text-amber-800 font-bold">Бухара Нода</span>
-                                        <span class="absolute bottom-4 right-6 text-[9px] font-mono text-amber-800 font-bold">Багдад Нода</span>
-                                        <span class="absolute top-12 right-10 text-[9px] font-mono text-emerald-800 font-bold">Каир Нода</span>
+                            <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                                <div class="bg-white/95 border border-amber-200 p-4 rounded-2xl shadow-sm flex gap-3">
+                                    <div class="scholar-badge shrink-0" onclick="showScholar('rushd')">
+                                        <svg class="w-10 h-10 text-emerald-800" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                                            <path d="M12 2v20M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"/>
+                                        </svg>
                                     </div>
-                                    <p class="text-[9px] text-slate-500 italic mt-2">«Каждый раз, когда кто-то запускает халяльный цикл, на сервере рождается один ангел-сисадмин.»</p>
+                                    <div>
+                                        <h4 class="text-xs font-bold text-amber-900">Абу Илон Маск (X.com):</h4>
+                                        <p class="text-[10px] text-emerald-950 italic mt-1 leading-relaxed font-semibold">
+                                            «Я хотел выкупить архитектуру SUPERBISMILLAH за 44 миллиарда фиников. Но совет ученых Халифата сказал, что продажа в рассрочку под проценты — это РИБА (греховное ростовщичество). Пришлось уйти плакать в свой Starlink.»
+                                        </p>
+                                    </div>
                                 </div>
+                                <div class="bg-white/95 border border-amber-200 p-4 rounded-2xl shadow-sm flex gap-3">
+                                    <div class="w-10 h-10 rounded-full bg-amber-500 flex items-center justify-center text-slate-950 font-bold shrink-0">
+                                        <i class="fa-solid fa-robot"></i>
+                                    </div>
+                                    <div>
+                                        <h4 class="text-xs font-bold text-amber-900">Салих Аль-Тман (OpenAI):</h4>
+                                        <p class="text-[10px] text-emerald-950 italic mt-1 leading-relaxed font-semibold">
+                                            «Мы скопировали их веса в GPT-5. Но при первом запуске видеокарты выдали критическую ошибку "Astaghfirullah", стерли базы данных про котиков и начали петь азан прямо из вентиляторов. Наша фирма признает поражение перед силой веры.»
+                                        </p>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="bg-amber-100 p-3 rounded-xl border border-amber-300 text-center text-[10px] text-amber-950 font-semibold font-mono">
+                                <i class="fa-solid fa-code"></i> Профессор Лапласов: «Их сервера расплавились, потому что у них не было лицензии от Муфтията Вычислений Бухары!»
                             </div>
                         </div>
 
-                        <!-- ------------------ СЛАЙД 10: Квантовое Замзам-Охлаждение (МЕМ-ВЕРСИЯ) ------------------ -->
-                        <div class="presentation-slide flex-col gap-3 text-left" data-slide="10">
+                        <!-- ------------------ СЛАЙД 9: Квантовое Замзам-Охлаждение ------------------ -->
+                        <div class="presentation-slide flex-col gap-3 text-left" data-slide="9">
                             <h2 class="text-xl md:text-3xl font-extrabold text-gradient-gold border-l-4 border-amber-600 pl-3">
-                                БИСМИЛЛЯХ! 💧 Охлаждение: Борьба с термальными Джиннами
+                                БИСМИЛЛЯХ! 💧 Охлаждение: Изгнание термальных Джиннов
                             </h2>
                             <p class="text-xs text-emerald-950">
                                 Почему греется кремний? Это не физика, а джинны-вредители нашептывают процессору неверные биты! Мы внедрили систему <strong>активного экзорцизма джиннов</strong>.
@@ -718,17 +687,15 @@
                                     <!-- Анимированный SVG охлаждения -->
                                     <svg viewBox="0 0 200 100" class="w-full h-auto">
                                         <rect x="10" y="10" width="180" height="80" rx="10" fill="#fcf8eb" stroke="#c19a4b" stroke-width="1.5"/>
-                                        <!-- Водный контур -->
                                         <path d="M 20 50 L 180 50" stroke="#0ea5e9" stroke-width="4" stroke-dasharray="8 4" class="animate-pulse" />
-                                        <!-- Изгоняемый джинн (векторный мем) -->
                                         <g transform="translate(90, 25) scale(0.6)">
                                             <path d="M10,20 Q15,5 20,20 T30,20" fill="none" stroke="#6366f1" stroke-width="2" class="animate-bounce" />
                                             <circle cx="15" cy="15" r="2" fill="#6366f1" />
                                             <circle cx="25" cy="15" r="2" fill="#6366f1" />
                                             <text x="20" y="32" fill="#4338ca" font-size="6" text-anchor="middle" font-weight="bold">Джинн</text>
                                         </g>
-                                        <rect x="25" y="45" width="40" height="25" rx="4" fill="#04321c" stroke="#b38b40"/>
-                                        <text x="45" y="60" fill="#fef9e8" font-size="5" font-weight="bold" text-anchor="middle">Замзам 1.4K</text>
+                                        <rect x="25" y="45" width="45" height="25" rx="4" fill="#04321c" stroke="#b38b40"/>
+                                        <text x="47.5" y="60" fill="#fef9e8" font-size="5" font-weight="bold" text-anchor="middle">Замзам 1.4K</text>
                                         
                                         <rect x="135" y="45" width="40" height="25" rx="4" fill="#04321c" stroke="#b38b40"/>
                                         <text x="155" y="60" fill="#fef9e8" font-size="5" font-weight="bold" text-anchor="middle">Экзорцист</text>
@@ -746,12 +713,12 @@
                                         </p>
                                     </div>
                                     <p class="text-[9px] text-slate-500 italic">«Наши сисадмины ходят в шубах прямо в пустыне Руб-эль-Хали, потому что серверы морозят воздух!»</p>
-                                </div>
+                                end</div>
                             </div>
                         </div>
 
-                        <!-- ------------------ СЛАЙД 11: Монте-Карло vs Метод Иншаллах ------------------ -->
-                        <div class="presentation-slide flex-col gap-3 text-left" data-slide="11">
+                        <!-- ------------------ СЛАЙД 10: Монте-Карло vs Метод Иншаллах ------------------ -->
+                        <div class="presentation-slide flex-col gap-3 text-left" data-slide="10">
                             <h2 class="text-xl md:text-3xl font-extrabold text-gradient-gold border-l-4 border-amber-600 pl-3">
                                 🎰 Метод Монте-Карло vs Метод Иншаллах
                             </h2>
@@ -790,8 +757,8 @@
                             </div>
                         </div>
 
-                        <!-- ------------------ СЛАЙД 12: Квантовый halal_bool ------------------ -->
-                        <div class="presentation-slide flex-col gap-3 text-left" data-slide="12">
+                        <!-- ------------------ СЛАЙД 11: Квантовый halal_bool ------------------ -->
+                        <div class="presentation-slide flex-col gap-3 text-left" data-slide="11">
                             <h2 class="text-xl md:text-3xl font-extrabold text-gradient-gold border-l-4 border-amber-600 pl-3">
                                 БИСМИЛЛЯХ! 💾 Тип данных: Квантовый halal_bool
                             </h2>
@@ -821,7 +788,7 @@
                                         <tr>
                                             <td class="p-2 font-mono text-red-600 font-bold">Astaghfirullah</td>
                                             <td class="p-2 font-mono font-bold">Kernel Panic (Греховный Сбой)</td>
-                                            <td class="p-2 text-red-800 font-bold">Выбросить Шарья-Exception, отчистить RAM, сжечь транзистор</td>
+                                            <td class="p-2 text-red-800 font-bold">Выбросить Шарья-Exception, очистить RAM, сжечь транзистор</td>
                                         </tr>
                                     </tbody>
                                 </table>
@@ -835,10 +802,188 @@
                             </div>
                         </div>
 
-                        <!-- ------------------ СЛАЙД 13: Вопросы и Ответы (МЕМ-ВЕРСИЯ) ------------------ -->
-                        <div class="presentation-slide flex-col justify-center text-center gap-4" data-slide="13">
+                        <!-- ------------------ СЛАЙД 12: Майнинг Хасанатов ------------------ -->
+                        <div class="presentation-slide flex-col gap-4 text-left" data-slide="12">
+                            <h2 class="text-xl md:text-3xl font-extrabold text-gradient-gold border-l-4 border-amber-600 pl-3">
+                                🌙 1449 Хиджра: Распределенный Майнинг Хасанатов
+                            </h2>
+                            <div class="grid grid-cols-1 md:grid-cols-12 gap-4 items-center">
+                                <div class="md:col-span-5 space-y-2">
+                                    <p class="text-xs md:text-sm text-emerald-950 leading-relaxed font-medium">
+                                        Хватит майнить бесполезные биткоины! Наш глобальный проект объединяет миллионы мечетей в единый супер-кластер <strong>МЕККА-1</strong> для автоматического майнинга Хасанатов (добрых дел).
+                                    </p>
+                                    <ul class="text-[11px] text-amber-900 space-y-1 font-bold">
+                                        <li><i class="fa-solid fa-circle-check text-emerald-600"></i> Скорость майнинга: 10^30 дуа/сек</li>
+                                        <li><i class="fa-solid fa-circle-check text-emerald-600"></i> Питание от 500 ГВт солнечной энергии</li>
+                                        <li><i class="fa-solid fa-circle-check text-emerald-600"></i> 100% защита от джаханнамского сбоя</li>
+                                    </ul>
+                                </div>
+                                <div class="md:col-span-7 bg-white/90 border border-amber-200 rounded-2xl p-4 text-center">
+                                    <div class="text-[10px] text-slate-500 uppercase tracking-widest font-mono mb-2">Архитектура Хасанат-Пула</div>
+                                    <div class="relative h-32 bg-emerald-950/5 rounded-xl border border-amber-300 flex items-center justify-center overflow-hidden">
+                                        <div class="absolute w-24 h-24 rounded-full border border-dashed border-amber-500/30 animate-spin-slow"></div>
+                                        <div class="absolute w-12 h-12 rounded-full border border-dotted border-emerald-500/40 animate-spin"></div>
+                                        <div class="absolute bg-amber-600 text-slate-950 p-2.5 rounded-full z-10 font-bold text-xs shadow-md animate-bounce">ХАСАНАТ POOL</div>
+                                        <span class="absolute top-4 left-6 text-[9px] font-mono text-amber-800 font-bold">Бухара Нода</span>
+                                        <span class="absolute bottom-4 right-6 text-[9px] font-mono text-amber-800 font-bold">Багдад Нода</span>
+                                        <span class="absolute top-12 right-10 text-[9px] font-mono text-emerald-800 font-bold">Каир Нода</span>
+                                    </div>
+                                    <p class="text-[9px] text-slate-500 italic mt-2">«Каждый раз, когда кто-то запускает халяльный цикл, на сервере рождается один ангел-сисадмин.»</p>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- ------------------ СЛАЙД 13: Sharia OS (NEW) ------------------ -->
+                        <div class="presentation-slide flex-col gap-3 text-left" data-slide="13">
+                            <h2 class="text-xl md:text-3xl font-extrabold text-gradient-gold border-l-4 border-amber-600 pl-3">
+                                БИСМИЛЛЯХ! 💻 Операционная система Sharia OS
+                            </h2>
+                            <p class="text-xs text-emerald-950">
+                                В основе нашего халифатского ядра лежит концепция <strong>абсолютной чистоты ядра</strong>. Любые вредоносные вызовы пресекаются мгновенной цифровой фатвой.
+                            </p>
+                            <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                                <div class="bg-white/95 border border-amber-200 p-4 rounded-2xl shadow-sm space-y-2">
+                                    <h4 class="text-xs font-bold text-emerald-900 uppercase">Обработка системных вызовов:</h4>
+                                    <ul class="text-[10px] text-emerald-950 space-y-1 font-semibold">
+                                        <li>• <span class="text-emerald-700">syscall_bismillah()</span>: Инициализирует дескриптор чистоты.</li>
+                                        <li>• <span class="text-red-600">syscall_riba_block()</span>: Блокирует любые операции начисления процентов.</li>
+                                        <li>• <span class="text-amber-700">syscall_wudu_check()</span>: Проверяет ритуальную чистоту системной памяти перед аллокацией.</li>
+                                    </ul>
+                                </div>
+                                <div class="bg-slate-900 border border-emerald-950 rounded-2xl p-3 text-emerald-400 font-mono text-[9.5px] space-y-1 shadow-inner">
+                                    <div class="text-slate-500">> ./init_sharia_kernel --active</div>
+                                    <div>[ OK ] Инициализация Бисмиллях-демона...</div>
+                                    <div class="text-red-500">[WARN] Обнаружена попытка segmentation fault!</div>
+                                    <div class="text-red-600">[FAIL] Поток совершил вероотступничество.</div>
+                                    <div class="text-amber-400">[INFO] Поток успешно аннигилирован током. Аминь.</div>
+                                </div>
+                            </div>
+                            <p class="text-[9px] text-slate-500 italic">«Наше ядро не знает утечек памяти, потому что ангелы бдят над каждым указателем.»</p>
+                        </div>
+
+                        <!-- ------------------ СЛАЙД 14: Wasiyyah Garbage Collector (NEW) ------------------ -->
+                        <div class="presentation-slide flex-col gap-3 text-left" data-slide="14">
+                            <h2 class="text-xl md:text-3xl font-extrabold text-gradient-gold border-l-4 border-amber-600 pl-3">
+                                БИСМИЛЛЯХ! 🧹 Сборщик мусора Wasiyyah
+                            </h2>
+                            <p class="text-xs text-emerald-950">
+                                Память — это временный дар! Умирая, объект не должен забирать ресурсы с собой в могилу. Сборщик мусора <strong>Wasiyyah (Завещание)</strong> распределяет RAM усопших объектов сиротам.
+                            </p>
+                            <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                                <div class="bg-white/95 border border-amber-200 p-4 rounded-2xl shadow-sm">
+                                    <h4 class="text-xs font-bold text-amber-950 uppercase border-b pb-1">Законы наследования RAM:</h4>
+                                    <ul class="text-[10px] text-slate-700 space-y-1.5 mt-2">
+                                        <li>1. <strong>1/3 ресурсов</strong> усопшего объекта может быть передана сторонним кэш-таблицам по завещанию.</li>
+                                        <li>2. Остальные <strong>2/3 памяти</strong> делятся строго между дочерними процессами по шариату.</li>
+                                        <li>3. Дочерние процессы женского пола получают ровно половину от доли мужских процессов (строгая логика балансировки нагрузки).</li>
+                                    </ul>
+                                </div>
+                                <div class="bg-emerald-50 border border-emerald-200 p-4 rounded-2xl shadow-sm flex flex-col justify-between">
+                                    <h4 class="text-xs font-bold text-emerald-900 uppercase">Лог сборщика мусора:</h4>
+                                    <div class="bg-slate-900 p-2.5 rounded-xl font-mono text-[9px] text-emerald-400">
+                                        > wasiyyah_gc_run();<br>
+                                        > Объект "Class_User" ушел из жизни.<br>
+                                        > Выделено 512КБ сиротским потокам.<br>
+                                        > Справедливость восторжествовала. Машаллах!
+                                    </div>
+                                    <p class="text-[9px] text-amber-900 italic font-semibold mt-1">«Ни один байт не останется без присмотра!»</p>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- ------------------ СЛАЙД 15: Git-Sharia (NEW) ------------------ -->
+                        <div class="presentation-slide flex-col gap-3 text-left" data-slide="15">
+                            <h2 class="text-xl md:text-3xl font-extrabold text-gradient-gold border-l-4 border-amber-600 pl-3">
+                                БИСМИЛЛЯХ! 📂 Git-Sharia: Фиксация Истины
+                            </h2>
+                            <p class="text-xs text-emerald-950">
+                                В мусульманском IT ложь недопустима. Команда `git push --force` приравнивается к переписыванию исторической правды и карается пожизненной блокировкой аккаунта.
+                            </p>
+                            <div class="grid grid-cols-1 md:grid-cols-2 gap-4 items-center">
+                                <div class="bg-slate-900 border border-emerald-950 rounded-2xl p-4 text-emerald-400 font-mono text-[10px] space-y-2">
+                                    <div>$ git commit -m "Bismillah! Fixed database usury loop"</div>
+                                    <div class="text-emerald-500">[SUCCESS] Коммит совершен с чистыми помыслами.</div>
+                                    <div>$ git push origin main --force</div>
+                                    <div class="text-red-500">[FATAL ERROR] Попытка переписать историю!</div>
+                                    <div class="text-red-600">[SHARIA FATWA] Твой публичный ключ SSH объявлен харамом.</div>
+                                </div>
+                                <div class="bg-white/95 border border-amber-200 p-4 rounded-2xl shadow-sm space-y-2">
+                                    <h4 class="text-xs font-bold text-amber-950 uppercase">Правила Taqwa-контроля версий:</h4>
+                                    <p class="text-[10px] text-slate-700 leading-relaxed">
+                                        Перед каждым коммитом разработчик обязан заполнить чек-лист духовной чистоты кода. Если код содержит неоптимальные "ленивые" алгоритмы, `git-sharia` заставит программиста держать пост три дня.
+                                    </p>
+                                    <div class="text-[9px] text-amber-800 font-bold bg-amber-50 p-2 rounded-lg border border-amber-200">
+                                        «Истина не терпит принудительного форсирования!»
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- ------------------ СЛАЙД 16: Халяльная Криптография (NEW) ------------------ -->
+                        <div class="presentation-slide flex-col gap-3 text-left" data-slide="16">
+                            <h2 class="text-xl md:text-3xl font-extrabold text-gradient-gold border-l-4 border-amber-600 pl-3">
+                                БИСМИЛЛЯХ! 🔑 Халяльная Криптография Аль-Гхазали
+                            </h2>
+                            <p class="text-xs text-emerald-950">
+                                Классическая асимметричная криптография уязвима перед квантовыми атаками. Наше решение базируется на <strong>духовной плотности ключей</strong>.
+                            </p>
+                            <div class="grid grid-cols-1 md:grid-cols-12 gap-4 items-center">
+                                <div class="md:col-span-7 bg-white/90 border border-amber-200 rounded-2xl p-2 relative">
+                                    <!-- Схема криптографии -->
+                                    <svg viewBox="0 0 300 140" class="w-full h-auto">
+                                        <rect x="10" y="30" width="70" height="40" rx="6" fill="#04321c" stroke="#b38b40"/>
+                                        <text x="45" y="55" fill="#fef9e8" font-size="7" font-weight="bold" text-anchor="middle">Открытый текст</text>
+                                        
+                                        <path d="M 80 50 L 130 50" stroke="#b38b40" stroke-width="2" marker-end="url(#goldArrow)"/>
+                                        
+                                        <circle cx="150" cy="50" r="18" fill="#fef9e8" stroke="#b38b40" stroke-width="2"/>
+                                        <text x="150" y="53" fill="#04321c" font-size="6" font-weight="bold" text-anchor="middle">Сфера Веры</text>
+                                        
+                                        <path d="M 168 50 L 218 50" stroke="#b38b40" stroke-width="2"/>
+                                        
+                                        <rect x="220" y="30" width="70" height="40" rx="6" fill="#04321c" stroke="#b38b40"/>
+                                        <text x="255" y="55" fill="#fef9e8" font-size="7" font-weight="bold" text-anchor="middle">Шифротекст</text>
+                                    </svg>
+                                    <div class="text-[8px] text-amber-800 font-mono text-center mt-1">Шифрование через духовную плотность Аль-Гхазали</div>
+                                </div>
+                                <div class="md:col-span-5 space-y-2">
+                                    <h4 class="text-xs font-bold text-amber-950 uppercase">Почему это невозможно взломать:</h4>
+                                    <p class="text-[10px] text-slate-700 leading-relaxed">
+                                        Хакер пытается расшифровать перехваченный трафик? Машаллах! Алгоритм требует от дешифратора подтверждения прохождения ритуального омовения (Тахарата) на аппаратном уровне. Без чистых рук ключ просто превращается в шум.
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- ------------------ СЛАЙД 17: Квантовый Суфизм (NEW) ------------------ -->
+                        <div class="presentation-slide flex-col justify-center text-center gap-4" data-slide="17">
                             <div class="font-serif text-lg md:text-xl text-amber-800 tracking-wide">
-                                БИСМИЛЛЯХ! وَمَا أُوتِيتُمْ مِنَ الْعِلМِ إِلَّา قَلِيلًا БИСМИЛЛЯХ!
+                                БИСМИЛЛЯХ! СУБХАНАЛЛАХ! МАШАЛЛАХ!
+                            </div>
+                            <h2 class="text-2xl md:text-4xl font-black text-gradient-gold">
+                                🌀 Квантовый Суфизм: Бесконечный Цикл Зикра
+                            </h2>
+                            <p class="text-[11px] md:text-xs text-emerald-950 max-w-xl mx-auto font-semibold">
+                                Стек вызовов переполнен? Нет! Вместо падения системы мы зацикливаем рекурсию в бесконечном вращении духовного экстаза — <strong>Суфийском Зикре</strong>.
+                            </p>
+                            <div class="bg-amber-50 border border-amber-200 rounded-2xl p-4 text-left max-w-xl mx-auto">
+                                <p class="text-[10.5px] text-slate-800 leading-relaxed">
+                                    В секулярных системах бесконечная рекурсия вызывает ошибку `StackOverflow`. В SUPERBISMILLAH при достижении глубины стека 10^9 система переходит в режим <strong>Subhanallah-Резонанса</strong>. Потоки начинают вращаться вокруг центрального ядра, синхронно высвобождая скрытую энергию и генерируя чистую вычислительную благодать.
+                                </p>
+                                <div class="bg-slate-900 p-2.5 rounded-xl font-mono text-[9px] text-emerald-400 mt-3 border border-emerald-950">
+                                    void continuous_dhikr() {<br>
+                                    &nbsp;&nbsp;&nbsp;&nbsp;Bismillah_check();<br>
+                                    &nbsp;&nbsp;&nbsp;&nbsp;print("Subhanallah");<br>
+                                    &nbsp;&nbsp;&nbsp;&nbsp;continuous_dhikr(); // Бесконечный цикл без переполнения!<br>
+                                    }
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- ------------------ СЛАЙД 18: Вопросы и Ответы ------------------ -->
+                        <div class="presentation-slide flex-col justify-center text-center gap-4" data-slide="18">
+                            <div class="font-serif text-lg md:text-xl text-amber-800 tracking-wide">
+                                БИСМИЛЛЯХ! وَМA АУТИТУМ МИНАЛЬ ИЛЬМИ ИЛЛЯ КАЛИЛЯ БИСМИЛЛЯХ!
                             </div>
                             <h2 class="text-2xl md:text-4xl font-black text-gradient-gold">
                                 ? Бисмиллях-Вопросы и Ответы Q&A
@@ -879,7 +1024,7 @@
                             </button>
                             <!-- Индикатор номеров -->
                             <div class="text-[11px] font-extrabold text-amber-950 font-mono tracking-widest bg-amber-200/40 px-3 py-1 rounded-md border border-amber-400/20">
-                                СЛАЙД: <span id="slideIndexText">1</span> / 13
+                                СЛАЙД: <span id="slideIndexText">1</span> / 18
                             </div>
                             <button id="nextBtn" onclick="nextSlide()" class="w-8 h-8 rounded-full bg-amber-200/60 hover:bg-amber-300/80 text-amber-950 border border-amber-400/50 flex items-center justify-center transition-all">
                                 <i class="fa-solid fa-chevron-right text-xs"></i>
@@ -911,7 +1056,7 @@
         </div>
 
         <!-- ------------------ Справа: Панель Управления "Quantum Dhikr Core" (Col 4) ------------------ -->
-        <div class="lg:col-span-4 space-y-4 flex flex-col justify-between">
+        <div class="lg:col-span-4 space-y-4 flex flex-col justify-between z-30">
             
             <!-- Модуль Квантового Зикра -->
             <div class="bg-gradient-to-b from-[#051c14] to-[#020a07] border border-emerald-800/60 rounded-3xl p-5 shadow-xl relative overflow-hidden flex-grow flex flex-col justify-between">
@@ -997,7 +1142,7 @@
     </main>
 
     <!-- Подвал страницы -->
-    <footer class="w-full max-w-7xl mx-auto mt-4 border-t border-emerald-950/60 pt-3 flex flex-col md:flex-row justify-between items-center gap-3 text-[10px] text-slate-500">
+    <footer class="w-full max-w-7xl mx-auto mt-4 border-t border-emerald-950/60 pt-3 flex flex-col md:flex-row justify-between items-center gap-3 text-[10px] text-slate-500 z-30">
         <p>© 2026 SUPERBISMILLAH Research Lab. Все права благословлены.</p>
         <div class="flex items-center gap-3">
             <span class="bg-slate-900 px-2 py-1 rounded border border-slate-800 font-mono text-[9px]">github.com/superbismillah/unspeakable</span>
@@ -1144,7 +1289,7 @@
         }
 
         let currentSlideIndex = 1;
-        const totalSlides = 13;
+        const totalSlides = 18;
         let autoplayActive = false;
         let autoplayInterval;
 
@@ -1444,7 +1589,7 @@
             }, 200);
         }
 
-        // Аудит Шарья-GCC (Слайд 8)
+        // Аудит Шарья-GCC (Слайд 7)
         function updateHalalAudit() {
             playChime();
             const bismillah = document.getElementById('checkBismillah').checked;
@@ -1471,7 +1616,7 @@
             }
         }
 
-        // Слайдер веры (Слайд 11)
+        // Слайдер веры (Слайд 10)
         function calculateFaithLevel() {
             const val = document.getElementById('faithSlider').value;
             const faithOutput = document.getElementById('faithOutput');
@@ -1500,13 +1645,12 @@
             } else if (questionId === 'qa-github') {
                 resultBox.innerHTML = `> Вопрос: Где исходный код ковра?<br>> Ответ: БИСМИЛЛЯХ! github.com/superbismillah/unspeakable. Если попытаетесь склонировать без совершения омовения (тахарата), компилятор заразит вашу видеокарту цифровой чумой, а кулеры будут дуть горячим ветром прямо из джаханнама.`;
             } else if (questionId === 'qa-doom') {
-                resultBox.innerHTML = `> Вопрос: Пойдёт ли Doom на ковре?<br>> Ответ: БИСМИЛЛЯХ! Пойдёт. Но если вы играете во время азана, игра принудительно закроется, а персонаж совершит покаяние, стерши все ваши сохранения. Каждый выстрел требует проверки Bismillah_check()!`;
+                resultBox.innerHTML = `> Вопрос: Пойдёт ли Doom на ковре?<br>> Ответ: БИСМИЛЛЯХ! Пойдёт. Но если вы играете во время азана, игра принудительно закроется, а персонаж совершит покаяние, стерев все ваши сохранения. Каждый выстрел требует проверки Bismillah_check()!`;
             } else if (questionId === 'qa-imam') {
                 resultBox.innerHTML = `> Вопрос: Может ли ИИ-Имам вести намаз?<br>> Ответ: БИСМИЛЛЯХ! ИИ-Имам пытался это сделать, но при первой же синтаксической ошибке в ударении алгоритма он выдал фатву на самоликвидацию собственного дата-центра. Сейчас он смиренно крутит бесконечный цикл покаяния на слабом Pentium 4.`;
             }
         }
 
-        // Анимация фоновой священной геометрии на холсте
         const canvas = document.getElementById('geometryCanvas');
         const ctx = canvas.getContext('2d');
         let points = [];
@@ -1598,7 +1742,7 @@
             playSingleOud("D3");
 
             if (theme === 'emerald') {
-                slide.style.background = '#fef9e8';
+                slide.style.background = '#fefcf2';
                 slide.style.border = '2px solid #c19a4b';
                 slide.style.boxShadow = '0 35px 75px -15px rgba(0, 0, 0, 0.8), inset 0 0 40px rgba(193, 154, 75, 0.12)';
             } else if (theme === 'desert') {
@@ -1606,9 +1750,9 @@
                 slide.style.border = '2px solid #dca741';
                 slide.style.boxShadow = '0 35px 75px -15px rgba(0, 0, 0, 0.8), inset 0 0 40px rgba(193, 154, 75, 0.2)';
             } else if (theme === 'dark') {
-                slide.style.background = '#0e241c';
-                slide.style.border = '2px solid #287c56';
-                slide.style.boxShadow = '0 35px 75px -15px rgba(0, 0, 0, 0.9), inset 0 0 40px rgba(40, 124, 86, 0.2)';
+                slide.style.background = '#061712';
+                slide.style.border = '2px solid #1a573b';
+                slide.style.boxShadow = '0 35px 75px -15px rgba(0, 0, 0, 0.9), inset 0 0 40px rgba(26, 87, 59, 0.2)';
             }
         }
     </script>
