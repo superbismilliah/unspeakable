@@ -1,0 +1,1616 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SUPERBISMILLAH: Исламский суперкомпьютерный халифат</title>
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Tone.js для космического восточного синтеза -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/tone/14.8.49/Tone.js"></script>
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Amiri:ital,wght@0,400;0,700;1,400;1,700&family=Inter:wght@300;400;500;600;700;800&family=Plus+Jakarta+Sans:wght@700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #04120e;
+            background-image: 
+                radial-gradient(circle at 10% 20%, rgba(198, 167, 92, 0.07) 0%, transparent 40%),
+                radial-gradient(circle at 90% 80%, rgba(46, 87, 62, 0.1) 0%, transparent 50%),
+                repeating-linear-gradient(45deg, rgba(198, 167, 92, 0.01) 0px, rgba(198, 167, 92, 0.01) 2px, transparent 2px, transparent 12px);
+            transition: background 0.5s ease;
+        }
+
+        /* Премиальная стилизация слайд-карт */
+        .slide-frame {
+            background: #fef9e8;
+            box-shadow: 0 35px 75px -15px rgba(0, 0, 0, 0.8), 
+                        inset 0 0 40px rgba(193, 154, 75, 0.12);
+            border: 2px solid #c19a4b;
+            position: relative;
+            overflow: hidden;
+            transition: all 0.6s cubic-bezier(0.16, 1, 0.3, 1);
+        }
+
+        .slide-frame::before {
+            content: "";
+            position: absolute;
+            top: 16px;
+            left: 16px;
+            right: 16px;
+            bottom: 16px;
+            border: 1px dashed rgba(193, 154, 75, 0.4);
+            border-radius: 20px;
+            pointer-events: none;
+            z-index: 10;
+        }
+
+        /* Водяной знак Бисмилла */
+        .slide-frame::after {
+            content: "﷽";
+            font-family: 'Amiri', serif;
+            font-size: 36px;
+            color: #c19a4b;
+            position: absolute;
+            bottom: 20px;
+            right: 30px;
+            opacity: 0.25;
+            z-index: 5;
+            pointer-events: none;
+        }
+
+        /* Текстовые градиенты */
+        .text-gradient-gold {
+            background: linear-gradient(135deg, #134625 0%, #997320 50%, #174a2b 100%);
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+        }
+
+        /* Стиль золотых монет-аватаров ученых */
+        .scholar-badge {
+            position: relative;
+            width: 76px;
+            height: 76px;
+            border-radius: 50%;
+            background: linear-gradient(135deg, #fef4db, #dfc68c);
+            border: 3px solid #b38b40;
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15), inset 0 2px 4px rgba(255,255,255,0.6);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            cursor: pointer;
+        }
+        .scholar-badge:hover {
+            transform: scale(1.15) translateY(-5px);
+            box-shadow: 0 12px 24px rgba(193, 154, 75, 0.4);
+            border-color: #d4af37;
+        }
+
+        /* Анимация пульсации */
+        @keyframes goldPulse {
+            0%, 100% { opacity: 0.4; transform: scale(1); }
+            50% { opacity: 0.8; transform: scale(1.08); }
+        }
+        .gold-glow-ring {
+            animation: goldPulse 3.5s infinite ease-in-out;
+        }
+
+        /* Кастомный премиальный скроллбар */
+        ::-webkit-scrollbar {
+            width: 8px;
+        }
+        ::-webkit-scrollbar-track {
+            background: #05140f;
+        }
+        ::-webkit-scrollbar-thumb {
+            background: #c19a4b;
+            border-radius: 4px;
+        }
+        ::-webkit-scrollbar-thumb:hover {
+            background: #d4af6a;
+        }
+
+        /* Слайд переходы */
+        .slide-container {
+            position: relative;
+            width: 100%;
+            height: 100%;
+        }
+        .presentation-slide {
+            display: none;
+            opacity: 0;
+            transform: translateY(20px) scale(0.98);
+            transition: opacity 0.5s ease, transform 0.5s ease;
+        }
+        .presentation-slide.active-slide {
+            display: flex;
+            opacity: 1;
+            transform: translateY(0) scale(1);
+        }
+    </style>
+</head>
+<body class="min-h-screen text-slate-100 flex flex-col justify-between p-3 md:p-6">
+
+    <header class="w-full max-w-7xl mx-auto flex flex-col sm:flex-row justify-between items-center gap-4 mb-4 border-b border-emerald-900/40 pb-3">
+        <div class="flex items-center gap-3">
+            <div class="h-11 w-11 rounded-xl bg-gradient-to-br from-emerald-600 to-amber-500 flex items-center justify-center shadow-lg animate-pulse">
+                <i class="fa-solid fa-mosque text-lg text-white"></i>
+            </div>
+            <div>
+                <h1 class="text-lg font-black tracking-wider text-amber-400 font-sans">SUPERBISMILLAH PRESENTATION HUB</h1>
+                <p class="text-[10px] text-emerald-400 font-mono">13 СЛАЙДОВ • СУПЕРКОМПЬЮТЕРНЫЙ ХАЛИФАТ v2.0 • ВОСТОЧНЫЙ MAQAM AUDIO</p>
+            </div>
+        </div>
+        <div class="flex items-center gap-3">
+            <button id="soundToggle" class="px-3.5 py-1.5 bg-emerald-950/60 border border-emerald-800 hover:border-amber-500 text-[11px] font-bold rounded-lg flex items-center gap-2 transition-all">
+                <i class="fa-solid fa-volume-high text-amber-500" id="soundIcon"></i>
+                <span>ЗВУК: ВКЛ</span>
+            </button>
+            <button id="autoplayBtn" class="px-3.5 py-1.5 bg-emerald-950/60 border border-emerald-800 hover:border-amber-500 text-[11px] font-bold rounded-lg flex items-center gap-2 transition-all">
+                <i class="fa-solid fa-play text-emerald-400" id="autoplayIcon"></i>
+                <span>АВТОПЛЕЙ</span>
+            </button>
+            <div class="text-right hidden md:block">
+                <span class="text-[10px] text-slate-400">Статус системы:</span>
+                <span class="text-[10px] text-emerald-400 font-mono ml-1">● 140% ХАЛЯЛЬНО</span>
+            </div>
+        </div>
+    </header>
+
+    <!-- Основной контейнер слайдера и панели управления -->
+    <main class="w-full max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-12 gap-6 items-stretch my-auto">
+        
+        <!-- Слева: Интерактивная зона слайдов (Col 8) -->
+        <div class="lg:col-span-8 flex flex-col gap-4 w-full">
+            
+            <!-- Обертка слайда -->
+            <div class="w-full select-none">
+                <div id="slideCard" class="slide-frame w-full rounded-3xl p-5 md:p-8 flex flex-col justify-between min-h-[500px] md:min-h-[580px]">
+                    
+                    <!-- Фоновый холст для квантовой сети священной геометрии -->
+                    <canvas id="geometryCanvas" class="absolute inset-0 w-full h-full pointer-events-none z-0 opacity-25"></canvas>
+
+                    <!-- Угловые орнаменты -->
+                    <div class="absolute top-4 left-4 w-8 h-8 border-t-2 border-l-2 border-amber-600/50 rounded-tl-lg pointer-events-none z-10"></div>
+                    <div class="absolute top-4 right-4 w-8 h-8 border-t-2 border-r-2 border-amber-600/50 rounded-tr-lg pointer-events-none z-10"></div>
+                    <div class="absolute bottom-4 left-4 w-8 h-8 border-b-2 border-l-2 border-amber-600/50 rounded-bl-lg pointer-events-none z-10"></div>
+                    <div class="absolute bottom-4 right-4 w-8 h-8 border-b-2 border-r-2 border-amber-600/50 rounded-br-lg pointer-events-none z-10"></div>
+
+                    <!-- Контейнер для слайдов -->
+                    <div class="slide-container z-10 flex-grow flex flex-col justify-center">
+
+                        <!-- ------------------ СЛАЙД 1: Титульный ------------------ -->
+                        <div class="presentation-slide active-slide flex-col justify-center text-center gap-4" data-slide="1">
+                            <div class="font-serif text-lg md:text-xl text-amber-800 tracking-wide">
+                                БИСМИЛЛЯХ! بِسْمِ ٱللَّٰهِ ٱلرَّحْمَٰنِ ٱلرَّحِيمِ БИСМИЛЛЯХ!
+                            </div>
+                            
+                            <!-- Векторная линия ученых -->
+                            <div class="flex justify-center items-center gap-4 md:gap-6 my-2">
+                                <!-- Аль-Хорезми -->
+                                <div class="flex flex-col items-center gap-1">
+                                    <div class="scholar-badge" onclick="showScholar('khwarizmi')">
+                                        <svg class="w-12 h-12 text-emerald-800" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                                            <circle cx="12" cy="12" r="10" stroke-dasharray="2 2"/>
+                                            <path d="M8 8l8 8M16 8l-8 8" stroke-width="2"/>
+                                            <text x="5" y="14" font-family="monospace" font-size="5" fill="currentColor">X=Y</text>
+                                        </svg>
+                                    </div>
+                                    <span class="text-[10px] font-bold text-amber-900 bg-amber-200/60 px-2 py-0.5 rounded-full">Аль-Хорезми</span>
+                                </div>
+                                <div class="w-6 h-6 rounded-full bg-amber-100 flex items-center justify-center border border-amber-300">
+                                    <i class="fa-solid fa-plus text-[10px] text-amber-700"></i>
+                                </div>
+                                <!-- Квантовый чип -->
+                                <div class="relative w-14 h-14 flex items-center justify-center">
+                                    <div class="absolute inset-0 rounded-full border border-dashed border-amber-500 gold-glow-ring"></div>
+                                    <div class="w-10 h-10 rounded-full bg-emerald-900 flex items-center justify-center text-amber-400 border border-amber-400">
+                                        <i class="fa-solid fa-microchip text-md animate-spin-slow"></i>
+                                    </div>
+                                </div>
+                                <div class="w-6 h-6 rounded-full bg-amber-100 flex items-center justify-center border border-amber-300">
+                                    <i class="fa-solid fa-equals text-[10px] text-amber-700"></i>
+                                </div>
+                                <!-- Ибн аль-Хайсам -->
+                                <div class="flex flex-col items-center gap-1">
+                                    <div class="scholar-badge" onclick="showScholar('haytham')">
+                                        <svg class="w-12 h-12 text-emerald-800" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                                            <circle cx="12" cy="12" r="6"/>
+                                            <path d="M12 2a10 10 0 0 0-10 10" stroke-dasharray="2 2"/>
+                                            <path d="M22 12A10 10 0 0 0 12 2" />
+                                            <circle cx="12" cy="12" r="2" fill="currentColor"/>
+                                        </svg>
+                                    </div>
+                                    <span class="text-[10px] font-bold text-amber-900 bg-amber-200/60 px-2 py-0.5 rounded-full">Ибн аль-Хайсам</span>
+                                </div>
+                            </div>
+
+                            <div class="my-1">
+                                <span class="inline-flex items-center gap-2 bg-emerald-900/10 text-amber-800 font-extrabold text-[10px] tracking-widest uppercase px-3 py-1 rounded-full border border-amber-500/20">
+                                    <i class="fa-solid fa-star-and-crescent text-amber-600 animate-spin-slow"></i>
+                                    БИСМИЛЛЯХ! SUPERCOMPUTING KHILAFAH SUMMIT 2027
+                                </span>
+                            </div>
+
+                            <div class="space-y-1">
+                                <h2 class="text-3xl md:text-5xl font-black tracking-tight text-gradient-gold font-sans leading-tight">
+                                    БИСМИЛЛЯХ! SUPERBISMILLAH
+                                </h2>
+                                <p class="text-md md:text-xl font-bold text-emerald-900">
+                                    Архитектура, победившая фон Неймана
+                                </p>
+                            </div>
+                            <p class="text-xs md:text-sm max-w-lg mx-auto text-amber-800 italic font-medium">
+                                «От безупречных алгоритмов аль-Хорезми — к бесконечной вычислительной благодати»
+                            </p>
+                            <div class="text-[10px] text-amber-900/80 font-bold mt-2">
+                                <i class="fa-regular fa-user"></i> Проф. А. И. Лапласов & Лаборатория вычислительной гармонии
+                            </div>
+                        </div>
+
+                        <!-- ------------------ СЛАЙД 2: Кризис ------------------ -->
+                        <div class="presentation-slide flex-col gap-4 text-left" data-slide="2">
+                            <h2 class="text-xl md:text-3xl font-extrabold text-gradient-gold border-l-4 border-amber-600 pl-3">
+                                БИСМИЛЛЯХ! 📉 Кризис: Энергетический тупик кремния
+                            </h2>
+                            <div class="grid grid-cols-1 md:grid-cols-2 gap-4 items-center">
+                                <div class="space-y-3">
+                                    <div class="flex items-center gap-3">
+                                        <div class="scholar-badge shrink-0 w-14 h-14" onclick="showScholar('avicenna')">
+                                            <svg class="w-8 h-8 text-emerald-800" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                                                <path d="M12 21a9 9 0 1 0 0-18 9 9 0 0 0 0 18z"/>
+                                                <path d="M12 7v10M8 12h8"/>
+                                            </svg>
+                                        </div>
+                                        <div>
+                                            <h4 class="text-xs font-bold text-amber-900 uppercase">Бисмиллях-расчеты Ибн Сины:</h4>
+                                            <p class="text-[11px] text-emerald-950 font-medium leading-tight">
+                                                Если бы суперкомпьютер Frontier работал в Багдаде времен Харуна ар-Рашида, его система охлаждения испарила бы реку Тигр за 3 дня!
+                                            </p>
+                                        </div>
+                                    </div>
+                                    <div class="bg-amber-100 border-l-4 border-amber-600 p-3 rounded-r-xl">
+                                        <div class="flex items-center gap-2 font-bold text-amber-900 text-xs">
+                                            <i class="fa-solid fa-triangle-exclamation"></i> Синдром «Буратино» (латентность шины)
+                                        </div>
+                                        <p class="text-[11px] text-amber-800 mt-1 leading-normal">Традиционная медная шина данных гоняет электроны туда-обратно бесполезно, выделяя гигакалории тепла. Наш девиз: Сгорел сервер — принял шахаду! Спокойно ждем 72 резервных сервера в раю.</p>
+                                    </div>
+                                </div>
+                                <div class="bg-emerald-950/10 p-4 rounded-2xl border border-emerald-900/20 flex flex-col gap-3">
+                                    <h4 class="text-xs font-bold text-emerald-900 uppercase">Латентность памяти (сравнение):</h4>
+                                    <div class="space-y-2">
+                                        <div>
+                                            <div class="flex justify-between text-[10px] font-bold text-emerald-900 mb-1">
+                                                <span>Архитектура фон Неймана</span>
+                                                <span>120 нс (MPI-тупик)</span>
+                                            </div>
+                                            <div class="w-full bg-amber-200/40 rounded-full h-2">
+                                                <div class="bg-amber-600 h-2 rounded-full w-full"></div>
+                                            </div>
+                                        </div>
+                                        <div>
+                                            <div class="flex justify-between text-[10px] font-bold text-emerald-900 mb-1">
+                                                <span>SUPERBISMILLAH (Баракат-Кэш)</span>
+                                                <span>0.0004 нс (Мгновенно)</span>
+                                            </div>
+                                            <div class="w-full bg-amber-200/40 rounded-full h-2">
+                                                <div class="bg-emerald-600 h-2 rounded-full w-[1%] animate-pulse"></div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <p class="text-[10px] text-amber-900 italic font-bold">«Покой — это отсутствие движения, а наша архитектура — вечное движение к нулевой задержке» — Ибн Сина</p>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- ------------------ СЛАЙД 3: Три столпа ------------------ -->
+                        <div class="presentation-slide flex-col gap-4 text-left" data-slide="3">
+                            <h2 class="text-xl md:text-3xl font-extrabold text-gradient-gold border-l-4 border-amber-600 pl-3">
+                                📿 Три столпа Халяльных Вычислений
+                            </h2>
+                            <div class="grid grid-cols-1 md:grid-cols-3 gap-3">
+                                <!-- Столп 1 -->
+                                <div class="bg-white/95 border border-amber-200 p-4 rounded-2xl shadow-sm text-center flex flex-col justify-between hover:border-amber-500 transition-all">
+                                    <div class="mx-auto scholar-badge" onclick="showScholar('biruni')">
+                                        <svg class="w-10 h-10 text-emerald-800" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                                            <circle cx="12" cy="12" r="10"/>
+                                            <path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10zM2 12h20"/>
+                                        </svg>
+                                    </div>
+                                    <h3 class="text-xs font-black text-emerald-900 mt-2">Интерконнект «Золотая симметрия»</h3>
+                                    <p class="text-[10px] text-emerald-950 mt-1 leading-snug">
+                                        Топология сети по заветам Аль-Бируни. Расстояние между любыми двумя узлами процессора стремится к 
+                                        <span class="inline-block bg-amber-200/60 px-1.5 py-0.5 rounded font-mono text-[9px] font-bold text-amber-950">log log N</span>.
+                                    </p>
+                                </div>
+                                <!-- Столп 2 -->
+                                <div class="bg-white/95 border border-amber-200 p-4 rounded-2xl shadow-sm text-center flex flex-col justify-between hover:border-amber-500 transition-all">
+                                    <div class="mx-auto scholar-badge" onclick="showScholar('jabir')">
+                                        <svg class="w-10 h-10 text-emerald-800" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                                            <path d="M10 2v4M14 2v4M6 22h12a2 2 0 0 0 2-2V8a2 2 0 0 0-2-2H6a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2z"/>
+                                            <circle cx="12" cy="14" r="3"/>
+                                        </svg>
+                                    </div>
+                                    <h3 class="text-xs font-black text-emerald-900 mt-2">Энтропийная SRAM «Алхимия»</h3>
+                                    <p class="text-[10px] text-emerald-950 mt-1 leading-snug">Принцип Джабира ибн Хайяна: тепловой хаос кремния не мешает, а ускоряет переключение квантовых триггеров.</p>
+                                </div>
+                                <!-- Столп 3 -->
+                                <div class="bg-white/95 border border-amber-200 p-4 rounded-2xl shadow-sm text-center flex flex-col justify-between hover:border-amber-500 transition-all">
+                                    <div class="mx-auto scholar-badge" onclick="showScholar('farabi')">
+                                        <svg class="w-10 h-10 text-emerald-800" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                                            <path d="M9 18V5l12-2v13"/>
+                                            <circle cx="6" cy="18" r="3"/>
+                                            <circle cx="18" cy="16" r="3"/>
+                                        </svg>
+                                    </div>
+                                    <h3 class="text-xs font-black text-emerald-900 mt-2">Балансировщик «Гармония Сфер»</h3>
+                                    <p class="text-[10px] text-emerald-950 mt-1 leading-snug">Назван в честь музыкальных открытий Аль-Фараби. Распределяет нагрузку потоков как идеальный звуковой аккорд.</p>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- ------------------ СЛАЙД 4: Математический Базис ------------------ -->
+                        <div class="presentation-slide flex-col gap-3 text-left" data-slide="4">
+                            <h2 class="text-xl md:text-3xl font-extrabold text-gradient-gold border-l-4 border-amber-600 pl-3">
+                                📐 Математический Базис: Уравнение Бараката
+                            </h2>
+                            <p class="text-xs text-emerald-950">
+                                В основе расчетов лежит нечеткая квантовая логика, превосходящая классическую булеву алгебру. Каждая ячейка памяти оперирует духовной плотностью состояний.
+                            </p>
+                            
+                            <!-- Векторная отрисовка формулы без MathJax -->
+                            <div class="bg-white border border-amber-200 rounded-2xl p-2 md:p-4 flex justify-center items-center shadow-inner overflow-x-auto">
+                                <svg viewBox="0 0 920 120" class="w-full max-w-[850px] min-w-[650px] h-auto text-emerald-950" fill="currentColor">
+                                    <defs>
+                                        <linearGradient id="mathGold" x1="0%" y1="0%" x2="100%" y2="100%">
+                                            <stop offset="0%" stop-color="#0e3c20" />
+                                            <stop offset="50%" stop-color="#a88132" />
+                                            <stop offset="100%" stop-color="#144326" />
+                                        </linearGradient>
+                                    </defs>
+                                    <g font-family="'Amiri', 'Georgia', serif" font-size="22">
+                                        <text x="10" y="60" font-style="italic" font-weight="bold" fill="url(#mathGold)" font-size="26">ℒ</text>
+                                        <text x="25" y="68" font-size="11" font-weight="bold" font-family="'Inter', sans-serif" fill="#997320">SUPER</text>
+                                        <text x="70" y="60" font-family="'Inter', sans-serif">(</text>
+                                        <text x="78" y="60" font-family="'Amiri', serif" font-size="28" fill="#134625">Ψ</text>
+                                        <text x="98" y="60" font-family="'Inter', sans-serif">)</text>
+                                        <text x="118" y="60" font-family="'Inter', sans-serif" font-weight="300" font-size="24">=</text>
+                                        <text x="148" y="50" font-family="'Inter', sans-serif" font-size="18" font-weight="bold" fill="#134625">lim</text>
+                                        <text x="145" y="68" font-size="11" font-family="'Inter', sans-serif" font-style="italic" fill="#a88132">τ → ∞</text>
+                                        
+                                        <path d="M 197,25 C 197,12 207,12 207,25 L 197,85 C 197,98 207,98 207,85" stroke="#134625" stroke-width="2.5" fill="none" />
+                                        <ellipse cx="202" cy="55" rx="9" ry="9" stroke="#997320" stroke-width="2" fill="none" />
+                                        <text x="188" y="94" font-size="12" font-weight="bold" font-family="'Inter', sans-serif" fill="#134625">Γ</text>
+                                        
+                                        <text x="230" y="42" font-style="italic" font-weight="bold">H</text>
+                                        <text x="248" y="42">(</text>
+                                        <text x="255" y="42" font-style="italic">t</text>
+                                        <text x="262" y="42)</text>
+                                        <circle cx="281" cy="35" r="7" stroke="#997320" stroke-width="1.5" fill="none" />
+                                        <line x1="274" y1="35" x2="288" y2="35" stroke="#997320" stroke-width="1.5" />
+                                        <line x1="281" y1="28" x2="281" y2="42" stroke="#997320" stroke-width="1.5" />
+                                        
+                                        <text x="301" y="42" font-family="'Amiri', serif" font-size="24">σ</text>
+                                        <text x="318" y="42">(</text>
+                                        <path d="M 329,28 L 339,28 L 334,38 Z" fill="#134625" />
+                                        <text x="340" y="32" font-size="12" font-family="'Inter', sans-serif">2</text>
+                                        <text x="349" y="42" font-family="'Amiri', serif" font-size="24">ρ</text>
+                                        <text x="363" y="42">)</text>
+                                        <line x1="225" y1="52" x2="375" y2="52" stroke="#134625" stroke-width="2" />
+                                        
+                                        <path d="M 228,78 L 233,78 L 238,88 L 246,62 L 370,62" stroke="#134625" stroke-width="1.5" fill="none" />
+                                        <text x="250" y="81">1</text>
+                                        <text x="267" y="81" font-family="'Inter', sans-serif">-</text>
+                                        <text x="283" y="81" font-family="'Amiri', serif" font-size="24">𝜗</text>
+                                        <text x="297" y="73" font-size="12" font-family="'Inter', sans-serif">2t</text>
+                                        
+                                        <text x="387" y="60" font-style="italic">d</text>
+                                        <text x="399" y="60" font-style="italic">t</text>
+                                        <text x="420" y="60" font-family="'Inter', sans-serif" font-size="24" fill="#997320">+</text>
+                                        <text x="450" y="60" font-family="serif" font-size="26" fill="#134625">ℶ</text>
+                                        <text x="465" y="68" font-size="12" font-family="'Inter', sans-serif">0</text>
+                                        <text x="480" y="60" font-family="'Inter', sans-serif" font-size="20">·</text>
+                                        
+                                        <circle cx="510" cy="52" r="14" stroke="#134625" stroke-width="2" fill="none" />
+                                        <line x1="496" y1="52" x2="524" y2="52" stroke="#134625" stroke-width="2" />
+                                        <line x1="510" y1="38" x2="510" y2="66" stroke="#134625" stroke-width="2" />
+                                        <text x="500" y="82" font-size="10" font-family="'Inter', sans-serif">k=1</text>
+                                        <text x="503" y="30" font-family="'Amiri', serif" font-size="14">𝒩</text>
+                                        
+                                        <text x="540" y="60" font-family="'Inter', sans-serif" font-size="18" font-weight="bold" fill="url(#mathGold)">StarPattern</text>
+                                        <text x="650" y="60" font-family="'Inter', sans-serif">(</text>
+                                        <text x="658" y="60" font-style="italic">G</text>
+                                        <text x="673" y="68" font-size="12" font-family="'Inter', sans-serif">k</text>
+                                        <text x="682" y="60" font-family="'Inter', sans-serif">,</text>
+                                        <text x="695" y="60" font-family="serif" font-size="24">𝔖</text>
+                                        <text x="710" y="68" font-size="12" font-family="'Inter', sans-serif">12</text>
+                                        <text x="727" y="60" font-family="'Inter', sans-serif">)</text>
+                                    </g>
+                                </svg>
+                            </div>
+
+                            <!-- Интерактивный регулятор Бараката -->
+                            <div class="bg-emerald-950/10 p-3 rounded-xl border border-emerald-900/10 flex flex-col md:flex-row justify-between items-center gap-4">
+                                <div class="w-full md:w-2/3 space-y-1">
+                                    <label class="text-[10px] font-bold text-emerald-900 uppercase">Регулировка духовной чистоты компиляции (\(\vartheta\)):</label>
+                                    <input type="range" id="thetaSlider" min="1" max="100" value="75" class="w-full accent-amber-600 cursor-pointer" oninput="calculateLiveBarakah()">
+                                </div>
+                                <div class="text-center bg-white px-4 py-2 rounded-lg border border-amber-200 shrink-0">
+                                    <div class="text-[9px] text-slate-500 uppercase font-mono">Вычислительный Баракат</div>
+                                    <span id="barakahOutput" class="text-lg font-black text-amber-600">87.5%</span>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- ------------------ СЛАЙД 5: Архитектурная Схема (МЕМ-ВЕРСИЯ) ------------------ -->
+                        <div class="presentation-slide flex-col gap-3 text-left" data-slide="5">
+                            <h2 class="text-xl md:text-3xl font-extrabold text-gradient-gold border-l-4 border-amber-600 pl-3">
+                                🕋 Архитектура «Брат, я тебе клянусь!»
+                            </h2>
+                            <div class="grid grid-cols-1 md:grid-cols-12 gap-4 items-center">
+                                <!-- Интерактивная векторная схема -->
+                                <div class="md:col-span-7 bg-white/90 border border-amber-200 rounded-2xl p-2 relative">
+                                    <svg viewBox="0 0 400 240" class="w-full h-auto">
+                                        <path d="M 0 40 L 400 40 M 0 80 L 400 80 M 0 120 L 400 120 M 0 160 L 400 160 M 0 200 L 400 200" stroke="rgba(193, 154, 75, 0.08)" stroke-width="1" />
+                                        <path d="M 80 0 L 80 240 M 160 0 L 160 240 M 240 0 L 240 240 M 320 0 L 320 240" stroke="rgba(193, 154, 75, 0.08)" stroke-width="1" />
+                                        
+                                        <!-- Узлы -->
+                                        <g id="nodeTakbir" class="cursor-pointer group" onclick="nodeAction('Wallah')">
+                                            <circle cx="80" cy="120" r="28" fill="#0c4a2c" stroke="#b38b40" stroke-width="2"/>
+                                            <text x="80" y="121" fill="#fef9e8" font-size="7" font-weight="bold" text-anchor="middle">Узел Валлах</text>
+                                            <text x="80" y="129" fill="#a88132" font-size="5" text-anchor="middle">100% честность</text>
+                                        </g>
+                                        <g id="nodeSalawat" class="cursor-pointer group" onclick="nodeAction('Sabr')">
+                                            <circle cx="200" cy="60" r="24" fill="#fef9e8" stroke="#b38b40" stroke-width="2"/>
+                                            <text x="200" y="59" fill="#0c4a2c" font-size="7" font-weight="bold" text-anchor="middle">Кэш Сабр</text>
+                                            <text x="200" y="66" fill="#78350f" font-size="5" text-anchor="middle">Удержание лага</text>
+                                        </g>
+                                        <g id="nodeQadr" class="cursor-pointer group" onclick="nodeAction('Inshallah')">
+                                            <circle cx="200" cy="180" r="24" fill="#fef9e8" stroke="#b38b40" stroke-width="2"/>
+                                            <text x="200" y="179" fill="#0c4a2c" font-size="7" font-weight="bold" text-anchor="middle">Иншаллах ALU</text>
+                                            <text x="200" y="186" fill="#16a34a" font-size="5" text-anchor="middle">Предначертано</text>
+                                        </g>
+                                        <g id="nodeOutput" class="cursor-pointer group" onclick="nodeAction('Barakah')">
+                                            <polygon points="320,100 360,120 320,140" fill="#b38b40" stroke="#0c4a2c" stroke-width="1"/>
+                                            <text x="315" y="122" fill="#0c4a2c" font-size="7" font-weight="bold" text-anchor="end">БАРАКАТ</text>
+                                            <text x="315" y="128" fill="#1e3a1e" font-size="5" text-anchor="end">Шина данных</text>
+                                        </g>
+
+                                        <!-- Связи -->
+                                        <path d="M 108 120 L 176 68" stroke="#b38b40" stroke-width="2" class="animate-pulse" />
+                                        <path d="M 108 120 L 176 172" stroke="#b38b40" stroke-width="2" />
+                                        <path d="M 224 60 L 310 110" stroke="#b38b40" stroke-width="2" stroke-dasharray="3 3" />
+                                        <path d="M 224 180 L 310 130" stroke="#b38b40" stroke-width="2" />
+                                    </svg>
+                                    <div class="absolute bottom-1 right-2 text-[8px] text-amber-800 font-mono">Кликните на узлы схемы для теста задержки веры</div>
+                                </div>
+                                <div class="md:col-span-5 space-y-2">
+                                    <h3 class="text-xs font-bold text-amber-900 flex items-center gap-1">
+                                        <i class="fa-solid fa-mosque text-amber-600"></i> Как это работает на практике:
+                                    </h3>
+                                    <p class="text-[11px] text-emerald-950 leading-relaxed">
+                                        Пакет отправляется в <strong>«Узел Валлах»</strong>. Если отправитель клянётся, что данные верны, пакет сразу опускает стадию верификации (задержка 0 нс). Потери памяти отсекаются в <strong>«Кэше Сабр»</strong> (процесс смиренно ждёт, пока компилятор простит ему плохой код).
+                                    </p>
+                                    <div class="bg-amber-100 p-2 rounded-xl text-[10px] text-amber-900 border border-amber-300 italic">
+                                        «Вместо DMA у нас работает духовная телепатия. Шина Баракат сама знает, куда течь.»
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- ------------------ СЛАЙД 6: Бенчмарки ------------------ -->
+                        <div class="presentation-slide flex-col gap-3 text-left" data-slide="6">
+                            <h2 class="text-xl md:text-3xl font-extrabold text-gradient-gold border-l-4 border-amber-600 pl-3">
+                                📊 Стресс-Тест Linpack (Оценка Аль-Фараби)
+                            </h2>
+                            <p class="text-[11px] text-emerald-950">
+                                Сравнительные испытания в реальном времени. В отличие от зарубежных аналогов,SUPERBISMILLAH превосходит классический лимит за счет квантово-молитвенного резонанса.
+                            </p>
+                            <!-- Сравнительная таблица (решение проблемы image_30dda5.png) -->
+                            <div class="overflow-hidden border border-amber-200 rounded-xl">
+                                <table class="w-full text-left text-[11px]">
+                                    <thead class="bg-amber-200/90 text-amber-950 font-bold">
+                                        <tr>
+                                            <th class="p-2 border-b border-amber-300">Суперкомпьютер</th>
+                                            <th class="p-2 border-b border-amber-300">Rmax (EFLOPS)</th>
+                                            <th class="p-2 border-b border-amber-300">Энергоэфф. (GFLOP/W)</th>
+                                            <th class="p-2 border-b border-amber-300">Статус вычислений</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody class="divide-y divide-amber-200/60 bg-white/95">
+                                        <tr class="text-slate-900 hover:bg-amber-50/50 transition-colors">
+                                            <td class="p-2 font-mono font-semibold">Frontier (США)</td>
+                                            <td class="p-2 font-medium">1.21 EFLOPS</td>
+                                            <td class="p-2 font-medium">52.8</td>
+                                            <td class="p-2 text-red-700 font-bold flex items-center gap-1">
+                                                <span class="w-1.5 h-1.5 rounded-full bg-red-600 animate-ping"></span> Перегрев / Харам
+                                            </td>
+                                        </tr>
+                                        <tr class="text-slate-900 hover:bg-amber-50/50 transition-colors">
+                                            <td class="p-2 font-mono font-semibold">Fugaku (Япония)</td>
+                                            <td class="p-2 font-medium">0.54 EFLOPS</td>
+                                            <td class="p-2 font-medium">41.2</td>
+                                            <td class="p-2 text-amber-700 font-bold flex items-center gap-1">
+                                                <span class="w-1.5 h-1.5 rounded-full bg-amber-600"></span> Троттлинг
+                                            </td>
+                                        </tr>
+                                        <tr class="text-slate-500 hover:bg-amber-50/50 transition-colors">
+                                            <td class="p-2 font-mono italic">Электроника МК-61</td>
+                                            <td class="p-2 italic">0.000001 (Мин.)</td>
+                                            <td class="p-2 italic">0.002</td>
+                                            <td class="p-2 text-slate-500 font-medium">Вялое жужжание</td>
+                                        </tr>
+                                        <tr class="bg-emerald-100/80 text-emerald-950 font-extrabold shadow-sm">
+                                            <td class="p-2 font-mono flex items-center gap-1 text-emerald-900">
+                                                <i class="fa-solid fa-bolt text-amber-500 animate-bounce"></i> SUPERBISMILLAH
+                                            </td>
+                                            <td class="p-2 font-mono text-emerald-900" id="liveEflopsCell">98.70 EFLOPS</td>
+                                            <td class="p-2 font-mono text-emerald-900" id="liveGflopsCell">1,450.0</td>
+                                            <td class="p-2 text-emerald-700 font-black flex items-center gap-1">
+                                                <span class="w-2 h-2 rounded-full bg-emerald-600 animate-pulse"></span> Благословенно
+                                            </td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                            <button onclick="runLinpackStress()" class="py-2 px-4 bg-amber-600 hover:bg-amber-500 text-slate-950 font-black rounded-lg text-xs flex items-center justify-center gap-2 shadow-md transition-all">
+                                <i class="fa-solid fa-gauge-high"></i>
+                                Запустить живой стресс-тест Linpack
+                            </button>
+                        </div>
+
+                        <!-- ------------------ СЛАЙД 7: Рецензии (МЕМ-ВЕРСИЯ) ------------------ -->
+                        <div class="presentation-slide flex-col gap-4 text-left" data-slide="7">
+                            <h2 class="text-xl md:text-3xl font-extrabold text-gradient-gold border-l-4 border-amber-600 pl-3">
+                                📜 Что говорят рецензенты (с легкой паникой)
+                            </h2>
+                            <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                                <div class="bg-white/95 border border-amber-200 p-4 rounded-2xl shadow-sm flex gap-3">
+                                    <div class="scholar-badge shrink-0" onclick="showScholar('rushd')">
+                                        <svg class="w-10 h-10 text-emerald-800" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                                            <path d="M12 2v20M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"/>
+                                        </svg>
+                                    </div>
+                                    <div>
+                                        <h4 class="text-xs font-bold text-amber-900">Абу Илон Маск (X.com):</h4>
+                                        <p class="text-[10px] text-emerald-950 italic mt-1 leading-relaxed font-semibold">
+                                            «Я хотел выкупить архитектуру SUPERBISMILLAH за 44 миллиарда фиников. Но совет ученых Халифата сказал, что продажа в рассрочку под проценты — это РИБА (греховное ростовщичество). Пришлось уйти плакать в свой Starlink.»
+                                        </p>
+                                    </div>
+                                </div>
+                                <div class="bg-white/95 border border-amber-200 p-4 rounded-2xl shadow-sm flex gap-3">
+                                    <div class="w-10 h-10 rounded-full bg-amber-500 flex items-center justify-center text-slate-950 font-bold shrink-0">
+                                        <i class="fa-solid fa-robot"></i>
+                                    </div>
+                                    <div>
+                                        <h4 class="text-xs font-bold text-amber-900">Салих Аль-Тман (OpenAI):</h4>
+                                        <p class="text-[10px] text-emerald-950 italic mt-1 leading-relaxed font-semibold">
+                                            «Мы скопировали их веса в GPT-5. Но при первом запуске видеокарты выдали критическую ошибку "Astaghfirullah", стерли базы данных про котиков и начали петь азан прямо из вентиляторов. Наша фирма признает поражение перед силой веры.»
+                                        </p>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="bg-amber-100 p-3 rounded-xl border border-amber-300 text-center text-[10px] text-amber-950 font-semibold font-mono">
+                                <i class="fa-solid fa-code"></i> Профессор Лапласов: «Их сервера расплавились, потому что у них не было лицензии от Муфтията Вычислений Бухары!»
+                            </div>
+                        </div>
+
+                        <!-- ------------------ СЛАЙД 8: Халяльный HPC Аудит (МЕМ-ВЕРСИЯ) ------------------ -->
+                        <div class="presentation-slide flex-col gap-3 text-left" data-slide="8">
+                            <h2 class="text-xl md:text-3xl font-extrabold text-gradient-gold border-l-4 border-amber-600 pl-3">
+                                БИСМИЛЛЯХ! 🕌 Опции компиляции Sharia-GCC
+                            </h2>
+                            <p class="text-xs text-emerald-950">
+                                Забудьте про скучный clang. Наш компилятор Шарья-GCC автоматически вырезает греховные алгоритмы, заменяя их на чистый упорядоченный код.
+                            </p>
+                            
+                            <!-- Векторная отрисовка формулы Халяльности -->
+                            <div class="bg-white border border-emerald-100 rounded-2xl p-2 md:p-3 flex justify-center items-center shadow-inner overflow-x-auto">
+                                <svg viewBox="0 0 750 110" class="w-full max-w-[700px] min-w-[500px] h-auto text-emerald-950" fill="currentColor">
+                                    <defs>
+                                        <linearGradient id="mathGreen" x1="0%" y1="0%" x2="100%" y2="100%">
+                                            <stop offset="0%" stop-color="#052e16" />
+                                            <stop offset="100%" stop-color="#15803d" />
+                                        </linearGradient>
+                                    </defs>
+                                    <g font-family="'Inter', 'Amiri', serif" font-size="20">
+                                        <text x="20" y="60" font-style="italic" font-weight="bold" fill="url(#mathGreen)" font-size="24">P</text>
+                                        <text x="35" y="68" font-size="11" font-weight="bold" font-family="'Inter', sans-serif" fill="#15803d">halal</text>
+                                        <text x="80" y="60" font-family="'Inter', sans-serif" font-weight="300" font-size="22">=</text>
+                                        <text x="175" y="42" font-family="'Inter', sans-serif">1</text>
+                                        <line x1="110" y1="52" x2="250" y2="52" stroke="#15803d" stroke-width="2" />
+                                        <text x="115" y="81" font-family="'Inter', sans-serif">1</text>
+                                        <text x="135" y="81" font-family="'Inter', sans-serif">+</text>
+                                        <text x="155" y="81" font-style="italic" font-family="'Amiri', serif" font-size="24">e</text>
+                                        <text x="170" y="71" font-size="11" font-family="'Inter', sans-serif" font-weight="bold" fill="#15803d">- (число ангелов · добродетель)</text>
+                                        
+                                        <text x="270" y="60" font-family="'Inter', sans-serif" font-size="22" font-weight="bold" fill="#15803d">?</text>
+                                        <text x="305" y="60" font-family="'Inter', sans-serif" font-weight="bold" font-size="22">0.999</text>
+                                        
+                                        <g transform="translate(480, 15)">
+                                            <rect x="0" y="0" width="180" height="60" rx="10" fill="#f0fdf4" stroke="#22c55e" stroke-width="2" stroke-dasharray="4" />
+                                            <text x="90" y="35" font-family="'Inter', sans-serif" font-size="14" font-weight="black" fill="#15803d" text-anchor="middle">💯 ХАЛЯЛЬНО</text>
+                                            <text x="90" y="50" font-family="'Inter', sans-serif" font-size="9" fill="#166534" text-anchor="middle">Бухарский Сертификат v1.0</text>
+                                        </g>
+                                    </g>
+                                </svg>
+                            </div>
+
+                            <!-- Интерактивный аудит-компилятор -->
+                            <div class="bg-slate-900 border border-emerald-900/60 rounded-2xl p-4 text-emerald-400 font-mono text-[11px] space-y-3">
+                                <div class="flex justify-between items-center border-b border-emerald-900 pb-2">
+                                    <span class="text-amber-400 font-bold">Бисмиллях-опции компиляции Sharia-GCC:</span>
+                                    <span class="text-xs" id="halalScoreText">Халяльность: 100%</span>
+                                </div>
+                                <div class="grid grid-cols-1 md:grid-cols-2 gap-3">
+                                    <label class="flex items-center gap-2 cursor-pointer bg-black/40 p-2 rounded-lg hover:bg-black/60 transition-all">
+                                        <input type="checkbox" id="checkBismillah" checked onchange="updateHalalAudit()" class="accent-emerald-500">
+                                        <span>-Obismillah (Авто-Бисмиллях к каждому циклу)</span>
+                                    </label>
+                                    <label class="flex items-center gap-2 cursor-pointer bg-black/40 p-2 rounded-lg hover:bg-black/60 transition-all">
+                                        <input type="checkbox" id="checkHaramLoops" checked onchange="updateHalalAudit()" class="accent-emerald-500">
+                                        <span>-fpurge-apostates (Вырезание указателей-муртадов)</span>
+                                    </label>
+                                    <label class="flex items-center gap-2 cursor-pointer bg-black/40 p-2 rounded-lg hover:bg-black/60 transition-all">
+                                        <input type="checkbox" id="checkAzaanSync" checked onchange="updateHalalAudit()" class="accent-emerald-500">
+                                        <span>-fthrow-fatwa (Генерация фатвы вместо исключений)</span>
+                                    </label>
+                                    <label class="flex items-center gap-2 cursor-pointer bg-black/40 p-2 rounded-lg hover:bg-black/60 transition-all">
+                                        <input type="checkbox" id="checkInterest" checked onchange="updateHalalAudit()" class="accent-emerald-500">
+                                        <span>-mexecute-sinners (Выжигание битых транзисторов током)</span>
+                                    </label>
+                                </div>
+                                <div class="bg-black/80 p-2 rounded-xl border border-emerald-950 text-[10px]" id="auditLogs">
+                                    > g++ -O3 -mhalal=active...<br>
+                                    > Проверка структуры... Нечестивых еретических утечек не обнаружено.
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- ------------------ СЛАЙД 9: Будущее Халифата (МЕМ-ВЕРСИЯ) ------------------ -->
+                        <div class="presentation-slide flex-col gap-4 text-left" data-slide="9">
+                            <h2 class="text-xl md:text-3xl font-extrabold text-gradient-gold border-l-4 border-amber-600 pl-3">
+                                🌙 1449 Хиджра: Распределенный Майнинг Хасанатов
+                            </h2>
+                            <div class="grid grid-cols-1 md:grid-cols-12 gap-4 items-center">
+                                <div class="md:col-span-5 space-y-2">
+                                    <p class="text-xs md:text-sm text-emerald-950 leading-relaxed font-medium">
+                                        Хватит майнить бесполезные биткоины! Наш глобальный проект объединяет миллионы мечетей в единый супер-кластер <strong>МЕККА-1</strong> для автоматического майнинга Хасанатов (добрых дел).
+                                    </p>
+                                    <ul class="text-[11px] text-amber-900 space-y-1 font-bold">
+                                        <li><i class="fa-solid fa-circle-check text-emerald-600"></i> Скорость майнинга: 10^30 дуа/сек</li>
+                                        <li><i class="fa-solid fa-circle-check text-emerald-600"></i> Питание от 500 ГВт солнечной энергии</li>
+                                        <li><i class="fa-solid fa-circle-check text-emerald-600"></i> 100% защита от джаханнамского сбоя</li>
+                                    </ul>
+                                </div>
+                                <div class="md:col-span-7 bg-white/90 border border-amber-200 rounded-2xl p-4 text-center">
+                                    <div class="text-[10px] text-slate-500 uppercase tracking-widest font-mono mb-2">Архитектура Хасанат-Пула</div>
+                                    <div class="relative h-32 bg-emerald-950/5 rounded-xl border border-amber-300 flex items-center justify-center overflow-hidden">
+                                        <div class="absolute w-24 h-24 rounded-full border border-dashed border-amber-500/30 animate-spin-slow"></div>
+                                        <div class="absolute w-12 h-12 rounded-full border border-dotted border-emerald-500/40 animate-spin"></div>
+                                        <div class="absolute bg-amber-600 text-slate-950 p-2.5 rounded-full z-10 font-bold text-xs shadow-md animate-bounce">ХАСАНАТ PULL</div>
+                                        <span class="absolute top-4 left-6 text-[9px] font-mono text-amber-800 font-bold">Бухара Нода</span>
+                                        <span class="absolute bottom-4 right-6 text-[9px] font-mono text-amber-800 font-bold">Багдад Нода</span>
+                                        <span class="absolute top-12 right-10 text-[9px] font-mono text-emerald-800 font-bold">Каир Нода</span>
+                                    </div>
+                                    <p class="text-[9px] text-slate-500 italic mt-2">«Каждый раз, когда кто-то запускает халяльный цикл, на сервере рождается один ангел-сисадмин.»</p>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- ------------------ СЛАЙД 10: Квантовое Замзам-Охлаждение (МЕМ-ВЕРСИЯ) ------------------ -->
+                        <div class="presentation-slide flex-col gap-3 text-left" data-slide="10">
+                            <h2 class="text-xl md:text-3xl font-extrabold text-gradient-gold border-l-4 border-amber-600 pl-3">
+                                БИСМИЛЛЯХ! 💧 Охлаждение: Борьба с термальными Джиннами
+                            </h2>
+                            <p class="text-xs text-emerald-950">
+                                Почему греется кремний? Это не физика, а джинны-вредители нашептывают процессору неверные биты! Мы внедрили систему <strong>активного экзорцизма джиннов</strong>.
+                            </p>
+                            <div class="grid grid-cols-1 md:grid-cols-2 gap-4 items-center">
+                                <div class="bg-white/95 border border-amber-200 p-4 rounded-2xl shadow-inner space-y-2">
+                                    <h4 class="text-xs font-bold text-emerald-900 uppercase">Бисмиллях-контур изгнания джиннов:</h4>
+                                    <!-- Анимированный SVG охлаждения -->
+                                    <svg viewBox="0 0 200 100" class="w-full h-auto">
+                                        <rect x="10" y="10" width="180" height="80" rx="10" fill="#fcf8eb" stroke="#c19a4b" stroke-width="1.5"/>
+                                        <!-- Водный контур -->
+                                        <path d="M 20 50 L 180 50" stroke="#0ea5e9" stroke-width="4" stroke-dasharray="8 4" class="animate-pulse" />
+                                        <!-- Изгоняемый джинн (векторный мем) -->
+                                        <g transform="translate(90, 25) scale(0.6)">
+                                            <path d="M10,20 Q15,5 20,20 T30,20" fill="none" stroke="#6366f1" stroke-width="2" class="animate-bounce" />
+                                            <circle cx="15" cy="15" r="2" fill="#6366f1" />
+                                            <circle cx="25" cy="15" r="2" fill="#6366f1" />
+                                            <text x="20" y="32" fill="#4338ca" font-size="6" text-anchor="middle" font-weight="bold">Джинн</text>
+                                        </g>
+                                        <rect x="25" y="45" width="40" height="25" rx="4" fill="#04321c" stroke="#b38b40"/>
+                                        <text x="45" y="60" fill="#fef9e8" font-size="5" font-weight="bold" text-anchor="middle">Замзам 1.4K</text>
+                                        
+                                        <rect x="135" y="45" width="40" height="25" rx="4" fill="#04321c" stroke="#b38b40"/>
+                                        <text x="155" y="60" fill="#fef9e8" font-size="5" font-weight="bold" text-anchor="middle">Экзорцист</text>
+                                    </svg>
+                                    <div class="flex justify-between text-[9px] text-slate-500 font-mono">
+                                        <span>Джинны в секунду: 0.00 (Все изгнаны)</span>
+                                        <span>Охлаждение: Силой Святой воды</span>
+                                    </div>
+                                </div>
+                                <div class="space-y-2">
+                                    <div class="bg-amber-100/80 p-3 rounded-xl border border-amber-300">
+                                        <h4 class="text-xs font-bold text-amber-950"><i class="fa-solid fa-snowflake"></i> Бисмиллях-теплоотводы:</h4>
+                                        <p class="text-[10px] text-amber-900 leading-normal mt-1 font-semibold">
+                                            Тяжёлая Замзам-вода циркулирует прямо поверх ядер. Медные пластины с гравировкой аятов охлаждают кремний до -273°C. Если температура превысит 100°C, материнская плата совершает акт самосожжения, дабы греховный троттлинг не осквернил соседние серверы.
+                                        </p>
+                                    </div>
+                                    <p class="text-[9px] text-slate-500 italic">«Наши сисадмины ходят в шубах прямо в пустыне Руб-эль-Хали, потому что серверы морозят воздух!»</p>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- ------------------ СЛАЙД 11: Монте-Карло vs Метод Иншаллах ------------------ -->
+                        <div class="presentation-slide flex-col gap-3 text-left" data-slide="11">
+                            <h2 class="text-xl md:text-3xl font-extrabold text-gradient-gold border-l-4 border-amber-600 pl-3">
+                                🎰 Метод Монте-Карло vs Метод Иншаллах
+                            </h2>
+                            <p class="text-xs text-emerald-950">
+                                Стандартные вероятностные алгоритмы Монте-Карло базируются на случайном казино-хаосе, что противоречит концепции абсолютного предопределения.
+                            </p>
+                            <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                                <div class="bg-white/95 border border-red-200 p-4 rounded-2xl shadow-sm">
+                                    <h3 class="text-xs font-bold text-red-900 uppercase border-b pb-1.5"><i class="fa-solid fa-dice text-red-600"></i> Западный Метод Монте-Карло</h3>
+                                    <ul class="text-[10px] text-slate-700 space-y-2 mt-2">
+                                        <li>• Ошибка округления: <span class="text-red-600 font-bold">10⁻⁴</span></li>
+                                        <li>• Зависит от генератора случайных чисел (шума)</li>
+                                        <li>• Требует миллиардов итераций впустую</li>
+                                        <li class="italic text-[9px] text-red-800">«Греховные игры с теорией вероятности»</li>
+                                    </ul>
+                                </div>
+                                <div class="bg-emerald-50 border border-emerald-200 p-4 rounded-2xl shadow-sm">
+                                    <h3 class="text-xs font-bold text-emerald-900 uppercase border-b pb-1.5"><i class="fa-solid fa-star-and-crescent text-emerald-600"></i> Вычислительный Метод Иншаллах</h3>
+                                    <ul class="text-[10px] text-emerald-950 space-y-2 mt-2">
+                                        <li>• Точность результата: <span class="text-emerald-700 font-black">100% (При воле Всевышнего)</span></li>
+                                        <li>• Алгоритм сходится за <span class="text-emerald-700 font-bold">1 такт</span></li>
+                                        <li>• Экономия ресурсов процессора: 99.9%</li>
+                                        <li class="italic text-[9px] text-emerald-800">«Сразу выдает верный ответ, если так предначертано»</li>
+                                    </ul>
+                                </div>
+                            </div>
+                            <!-- Интерактивный слайдер веры -->
+                            <div class="bg-amber-100 p-3 rounded-xl border border-amber-300 flex justify-between items-center gap-4">
+                                <div class="w-2/3 space-y-1">
+                                    <label class="text-[9px] font-bold text-amber-950 uppercase">Уровень духовного упования (Таваккуль):</label>
+                                    <input type="range" id="faithSlider" min="1" max="100" value="95" class="w-full accent-emerald-700 cursor-pointer" oninput="calculateFaithLevel()">
+                                </div>
+                                <div class="text-center bg-white px-3 py-1.5 rounded-lg border border-amber-200 shrink-0">
+                                    <span id="faithOutput" class="text-xs font-black text-emerald-800">Иншаллах 100% сойдется</span>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- ------------------ СЛАЙД 12: Квантовый halal_bool ------------------ -->
+                        <div class="presentation-slide flex-col gap-3 text-left" data-slide="12">
+                            <h2 class="text-xl md:text-3xl font-extrabold text-gradient-gold border-l-4 border-amber-600 pl-3">
+                                БИСМИЛЛЯХ! 💾 Тип данных: Квантовый halal_bool
+                            </h2>
+                            <p class="text-xs text-emerald-950">
+                                Двоичная логика (0 и 1) слишком ограничена. Мы внедрили троичный квантовый тип `halal_bool` для более гибкой обработки жизненных ситуаций.
+                            </p>
+                            <div class="overflow-hidden border border-amber-200 rounded-xl">
+                                <table class="w-full text-left text-[11px]">
+                                    <thead class="bg-amber-100 text-amber-950 font-bold">
+                                        <tr>
+                                            <th class="p-2 border-b border-amber-300">Состояние переменной</th>
+                                            <th class="p-2 border-b border-amber-300">Квантовое значение</th>
+                                            <th class="p-2 border-b border-amber-300">Системное действие при чтении</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody class="divide-y divide-amber-200/50 bg-white">
+                                        <tr>
+                                            <td class="p-2 font-mono text-emerald-700 font-bold">Mashaallah</td>
+                                            <td class="p-2 font-mono font-bold">True (Абсолютный Успех)</td>
+                                            <td class="p-2 text-emerald-800">Кэшировать мгновенно, не пересчитывать</td>
+                                        </tr>
+                                        <tr>
+                                            <td class="p-2 font-mono text-amber-700 font-bold">Inshallah</td>
+                                            <td class="p-2 font-mono font-bold">Superposition (50% / 50%)</td>
+                                            <td class="p-2 text-amber-800">Ждать благословения компилятора</td>
+                                        </tr>
+                                        <tr>
+                                            <td class="p-2 font-mono text-red-600 font-bold">Astaghfirullah</td>
+                                            <td class="p-2 font-mono font-bold">Kernel Panic (Греховный Сбой)</td>
+                                            <td class="p-2 text-red-800 font-bold">Выбросить Шарья-Exception, отчистить RAM, сжечь транзистор</td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                            <div class="bg-slate-900 text-emerald-400 p-2.5 rounded-xl font-mono text-[10px] border border-emerald-950">
+                                <span class="text-amber-400">halal_bool</span> process_payment() {<br>
+                                &nbsp;&nbsp;&nbsp;&nbsp;Bismillah_start();<br>
+                                &nbsp;&nbsp;&nbsp;&nbsp;if (has_usury_interest) return <span class="text-red-500">Astaghfirullah</span>; // Смертная казнь потока памяти<br>
+                                &nbsp;&nbsp;&nbsp;&nbsp;return <span class="text-emerald-400">Inshallah</span>;<br>
+                                }
+                            </div>
+                        </div>
+
+                        <!-- ------------------ СЛАЙД 13: Вопросы и Ответы (МЕМ-ВЕРСИЯ) ------------------ -->
+                        <div class="presentation-slide flex-col justify-center text-center gap-4" data-slide="13">
+                            <div class="font-serif text-lg md:text-xl text-amber-800 tracking-wide">
+                                БИСМИЛЛЯХ! وَمَا أُوتِيتُمْ مِنَ الْعِلМِ إِلَّา قَلِيلًا БИСМИЛЛЯХ!
+                            </div>
+                            <h2 class="text-2xl md:text-4xl font-black text-gradient-gold">
+                                ? Бисмиллях-Вопросы и Ответы Q&A
+                            </h2>
+                            <p class="text-[11px] md:text-xs text-emerald-950 max-w-xl mx-auto font-semibold">
+                                «Мы не до конца уверены, почему эта святая компиляция выдает 98 Eflops, но все великие ученые гордятся нами.»
+                            </p>
+                            <!-- FAQ-терминал -->
+                            <div class="bg-amber-50 border border-amber-200 rounded-2xl p-4 text-left max-w-xl mx-auto space-y-3">
+                                <h4 class="text-xs font-bold text-amber-900 uppercase tracking-wider text-center">Интерактивный Терминал Мудрых Ответов</h4>
+                                <div class="grid grid-cols-1 sm:grid-cols-2 gap-2">
+                                    <button onclick="terminalAnswer('qa-law')" class="p-2 bg-white hover:bg-amber-100 border border-amber-300 rounded-xl text-[10px] font-bold text-emerald-900 transition-all text-left flex items-center gap-2">
+                                        <i class="fa-regular fa-circle-question text-amber-600"></i> А как же законы термодинамики?
+                                    </button>
+                                    <button onclick="terminalAnswer('qa-github')" class="p-2 bg-white hover:bg-amber-100 border border-amber-300 rounded-xl text-[10px] font-bold text-emerald-900 transition-all text-left flex items-center gap-2">
+                                        <i class="fa-regular fa-circle-question text-amber-600"></i> Где исходный код ковра?
+                                    </button>
+                                    <button onclick="terminalAnswer('qa-doom')" class="p-2 bg-white hover:bg-amber-100 border border-amber-300 rounded-xl text-[10px] font-bold text-emerald-900 transition-all text-left flex items-center gap-2">
+                                        <i class="fa-regular fa-circle-question text-amber-600"></i> Пойдёт ли Doom на ковре?
+                                    </button>
+                                    <button onclick="terminalAnswer('qa-imam')" class="p-2 bg-white hover:bg-amber-100 border border-amber-300 rounded-xl text-[10px] font-bold text-emerald-900 transition-all text-left flex items-center gap-2">
+                                        <i class="fa-regular fa-circle-question text-amber-600"></i> Может ли ИИ-Имам вести намаз?
+                                    </button>
+                                </div>
+                                <div id="terminalResult" class="bg-slate-900 border border-emerald-950 rounded-xl p-3 text-[10px] text-emerald-400 font-mono min-h-[50px] flex items-center">
+                                    > Выберите каверзный вопрос сверху для получения ответа компилятора...
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+
+                    <!-- Подвал Слайда (Панель Навигации) -->
+                    <div class="z-10 relative mt-4 pt-3 border-t border-amber-600/20 flex flex-col sm:flex-row justify-between items-center gap-3">
+                        <div class="flex items-center gap-3">
+                            <button id="prevBtn" onclick="prevSlide()" class="w-8 h-8 rounded-full bg-amber-200/60 hover:bg-amber-300/80 text-amber-950 border border-amber-400/50 flex items-center justify-center transition-all">
+                                <i class="fa-solid fa-chevron-left text-xs"></i>
+                            </button>
+                            <!-- Индикатор номеров -->
+                            <div class="text-[11px] font-extrabold text-amber-950 font-mono tracking-widest bg-amber-200/40 px-3 py-1 rounded-md border border-amber-400/20">
+                                СЛАЙД: <span id="slideIndexText">1</span> / 13
+                            </div>
+                            <button id="nextBtn" onclick="nextSlide()" class="w-8 h-8 rounded-full bg-amber-200/60 hover:bg-amber-300/80 text-amber-950 border border-amber-400/50 flex items-center justify-center transition-all">
+                                <i class="fa-solid fa-chevron-right text-xs"></i>
+                            </button>
+                        </div>
+                        
+                        <!-- Точки быстрой навигации -->
+                        <div class="flex gap-1.5" id="dotsContainer">
+                            <!-- Заполняется динамически JS -->
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+
+            <!-- Интерактивные микро-контроллеры под слайдом -->
+            <div class="grid grid-cols-3 gap-2">
+                <button onclick="changeBackgroundTheme('emerald')" class="py-2.5 bg-emerald-950/40 hover:bg-emerald-900/60 border border-emerald-800/60 hover:border-amber-500/50 rounded-xl text-xs font-semibold flex items-center justify-center gap-2 transition-all">
+                    <span class="w-2.5 h-2.5 rounded-full bg-emerald-700 border border-amber-500/30"></span> Изумрудный бархат
+                </button>
+                <button onclick="changeBackgroundTheme('desert')" class="py-2.5 bg-emerald-950/40 hover:bg-emerald-900/60 border border-emerald-800/60 hover:border-amber-500/50 rounded-xl text-xs font-semibold flex items-center justify-center gap-2 transition-all">
+                    <span class="w-2.5 h-2.5 rounded-full bg-amber-500 border border-amber-500/30"></span> Золотая пустыня
+                </button>
+                <button onclick="changeBackgroundTheme('dark')" class="py-2.5 bg-emerald-950/40 hover:bg-emerald-900/60 border border-emerald-800/60 hover:border-amber-500/50 rounded-xl text-xs font-semibold flex items-center justify-center gap-2 transition-all">
+                    <span class="w-2.5 h-2.5 rounded-full bg-slate-900 border border-amber-500/30"></span> Тёмный обсидиан
+                </button>
+            </div>
+
+        </div>
+
+        <!-- ------------------ Справа: Панель Управления "Quantum Dhikr Core" (Col 4) ------------------ -->
+        <div class="lg:col-span-4 space-y-4 flex flex-col justify-between">
+            
+            <!-- Модуль Квантового Зикра -->
+            <div class="bg-gradient-to-b from-[#051c14] to-[#020a07] border border-emerald-800/60 rounded-3xl p-5 shadow-xl relative overflow-hidden flex-grow flex flex-col justify-between">
+                <div class="absolute -top-10 -right-10 w-24 h-24 bg-amber-500/10 rounded-full blur-xl pointer-events-none"></div>
+                
+                <div>
+                    <!-- Заголовок с точкой-акцентом -->
+                    <h3 class="text-xs font-bold tracking-wider text-amber-400 mb-4 uppercase flex items-center gap-2">
+                        <span class="relative flex h-2.5 w-2.5">
+                          <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-amber-400 opacity-75"></span>
+                          <span class="relative inline-flex rounded-full h-2.5 w-2.5 bg-amber-500"></span>
+                        </span>
+                        Квантовый Зикр Драйвер
+                    </h3>
+
+                    <!-- Дисплей производительности (0.00 EFLOPS) -->
+                    <div class="bg-black/40 border border-emerald-900/50 rounded-2xl p-4 text-center space-y-1.5 mb-4">
+                        <div class="text-[9px] text-slate-400 font-mono tracking-wider uppercase">Халяльная Вычислительная Мощность</div>
+                        <div class="text-3xl md:text-4xl font-black font-mono tracking-tight text-amber-500 flex items-center justify-center gap-1">
+                            <span id="eflopsVal">0.00</span> <span class="text-sm text-slate-300 font-normal">EFLOPS</span>
+                        </div>
+                        <div class="text-[10px] font-mono text-emerald-400 font-semibold" id="halalConfidence">
+                            Статус: Готов к благословению
+                        </div>
+                    </div>
+
+                    <!-- Кнопки управления Зикром -->
+                    <div class="space-y-2.5">
+                        <button id="launchBtn" onclick="runQuantumDhikr()" class="w-full py-3.5 bg-gradient-to-r from-amber-500 to-amber-600 hover:from-amber-400 hover:to-amber-500 text-slate-950 font-black tracking-wider rounded-xl shadow-lg flex items-center justify-center gap-3 transition-all transform active:scale-95 text-xs uppercase">
+                            <i class="fa-solid fa-play"></i>
+                            <span>Запустить Квантовый Зикр</span>
+                        </button>
+                        <button id="resetBtn" onclick="resetSim()" class="w-full py-2.5 bg-slate-900/80 hover:bg-slate-800 border border-slate-700/60 text-[10px] font-bold text-slate-300 rounded-lg flex items-center justify-center gap-2 transition-all">
+                            <i class="fa-solid fa-rotate-left text-amber-500/80"></i>
+                            Сбросить метрики
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Логи вычислительной сунны -->
+                <div class="mt-4 pt-4 border-t border-emerald-900/40">
+                    <div class="flex justify-between items-center mb-2">
+                        <span class="text-[9px] font-bold text-slate-400 uppercase tracking-wider">Лог вычислительной сунны</span>
+                        <span class="w-2 h-2 rounded-full bg-emerald-500 animate-pulse"></span>
+                    </div>
+                    <div id="logConsole" class="bg-black/60 border border-emerald-950 rounded-xl p-3 h-32 overflow-y-auto font-mono text-[9px] text-emerald-400 space-y-1">
+                        <div class="text-slate-500">> Инициализация халяльного HPC...</div>
+                        <div class="text-slate-500">> Все вычислительные ноды благословлены.</div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Динамическое информационное табло ученых -->
+            <div id="infoWidget" class="bg-gradient-to-b from-[#041a13] to-[#010c08] border border-emerald-800/40 rounded-3xl p-5 shadow-xl transition-all">
+                <div id="widgetPlaceholder" class="text-center py-4 text-slate-400 space-y-3">
+                    <div class="flex justify-center">
+                        <i class="fa-solid fa-hand-point-up text-3xl text-amber-500/80 animate-bounce"></i>
+                    </div>
+                    <p class="text-[11px] font-semibold leading-relaxed max-w-xs mx-auto text-slate-300">
+                        Нажмите на портрет-монету на слайдах, чтобы раскрыть вклад ученого.
+                    </p>
+                </div>
+                
+                <div id="widgetContent" class="hidden space-y-2.5">
+                    <div class="flex items-center gap-3">
+                        <div id="widgetImgHolder" class="w-11 h-11 rounded-full border-2 border-amber-500 flex items-center justify-center bg-amber-100 shadow-md">
+                            <!-- Заполняется по JS -->
+                        </div>
+                        <div>
+                            <h4 id="widgetName" class="font-bold text-amber-400 text-xs"></h4>
+                            <p id="widgetTitle" class="text-[9px] text-emerald-400 font-mono font-semibold"></p>
+                        </div>
+                    </div>
+                    <p id="widgetDesc" class="text-[10px] text-slate-300 leading-relaxed"></p>
+                    <div class="bg-emerald-950/60 p-2 rounded-lg border border-emerald-900/40 text-[9px] text-amber-500 font-mono flex items-center gap-1.5">
+                        <i class="fa-solid fa-microchip text-amber-600"></i>
+                        <span id="widgetTech"></span>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </main>
+
+    <!-- Подвал страницы -->
+    <footer class="w-full max-w-7xl mx-auto mt-4 border-t border-emerald-950/60 pt-3 flex flex-col md:flex-row justify-between items-center gap-3 text-[10px] text-slate-500">
+        <p>© 2026 SUPERBISMILLAH Research Lab. Все права благословлены.</p>
+        <div class="flex items-center gap-3">
+            <span class="bg-slate-900 px-2 py-1 rounded border border-slate-800 font-mono text-[9px]">github.com/superbismillah/unspeakable</span>
+            <span class="text-amber-500 font-bold">Пароль дешифровки ковра: "inshaallah"</span>
+        </div>
+    </footer>
+
+    <script>
+        let soundEnabled = true;
+        let naySynth, oudSynth, droneSynth, chime;
+        let isAudioStarted = false;
+        let ambientSequenceInterval = null;
+
+        function initAudio() {
+            if (isAudioStarted) return;
+            isAudioStarted = true;
+
+            // Мягкий, воздушный Nay (Синтезатор флейты)
+            naySynth = new Tone.MonoSynth({
+                oscillator: { type: "sine" },
+                filter: { Q: 1, type: "lowpass", frequency: 1200 },
+                envelope: { attack: 0.18, decay: 0.4, sustain: 0.7, release: 0.8 },
+                filterEnvelope: { attack: 0.1, decay: 0.3, baseFrequency: 800, octaves: 2 }
+            }).toDestination();
+            naySynth.volume.value = -10;
+
+            // Золотой щипковый Oud (Синтезатор лютни)
+            oudSynth = new Tone.MonoSynth({
+                oscillator: { type: "triangle" },
+                filter: { Q: 6, type: "lowpass", rolloff: -24 },
+                envelope: { attack: 0.015, decay: 0.25, sustain: 0.15, release: 0.7 },
+                filterEnvelope: { attack: 0.005, decay: 0.15, baseFrequency: 350, octaves: 4.2 }
+            }).toDestination();
+            oudSynth.volume.value = -8;
+
+            // Медитативный Drone (Атмосферный подкладочный гул)
+            droneSynth = new Tone.PolySynth(Tone.Synth, {
+                oscillator: { type: "sine" },
+                envelope: { attack: 1.5, decay: 1.0, sustain: 0.8, release: 2.0 }
+            }).toDestination();
+            droneSynth.volume.value = -18;
+
+            // Резонансный колокольчик для интерфейса
+            chime = new Tone.MetalSynth({
+                frequency: 440,
+                envelope: { attack: 0.001, decay: 0.4, release: 0.1 },
+                harmonicity: 4.2,
+                resonance: 8000,
+                modulationIndex: 20
+            }).toDestination();
+            chime.volume.value = -14;
+
+            // Запускаем непрерывный глубокий фоновый гул на чистой квинте (мистическая опора)
+            try {
+                droneSynth.triggerAttack(["D2", "A2"]);
+                startContinuousMaqam();
+            } catch (err) { console.log(err); }
+        }
+
+        // Древняя шкала Maqam Hijaz (D, Eb, F#, G, A, Bb, C)
+        const hijazScale = ["D4", "Eb4", "F#4", "G4", "A4", "Bb4", "C5", "D5"];
+
+        // Постоянная фоновая генерация восточной атмосферы
+        function startContinuousMaqam() {
+            if (ambientSequenceInterval) clearInterval(ambientSequenceInterval);
+            
+            // Каждые 3.5 секунды воспроизводим нежный фоновый перелив
+            ambientSequenceInterval = setInterval(() => {
+                if (!soundEnabled) return;
+                try {
+                    const coinFlip = Math.random();
+                    if (coinFlip > 0.4) {
+                        const note = hijazScale[Math.floor(Math.random() * hijazScale.length)];
+                        // Плавающий Ней флейта
+                        naySynth.triggerAttackRelease(note, "0.8");
+                    } else {
+                        const note1 = hijazScale[Math.floor(Math.random() * hijazScale.length)];
+                        const note2 = hijazScale[Math.floor(Math.random() * hijazScale.length)];
+                        // Щипок лютни
+                        oudSynth.triggerAttackRelease(note1, "0.4");
+                        setTimeout(() => {
+                            if (soundEnabled) oudSynth.triggerAttackRelease(note2, "0.3");
+                        }, 250);
+                    }
+                } catch (e) {}
+            }, 3500);
+        }
+
+        // Кнопка переключения звука
+        document.getElementById('soundToggle').addEventListener('click', () => {
+            soundEnabled = !soundEnabled;
+            const icon = document.getElementById('soundIcon');
+            const btnText = document.querySelector('#soundToggle span');
+            if (soundEnabled) {
+                icon.className = "fa-solid fa-volume-high text-amber-500";
+                btnText.textContent = "ЗВУК: ВКЛ";
+                if (!droneSynth) {
+                    initAudio();
+                } else {
+                    droneSynth.triggerAttack(["D2", "A2"]);
+                }
+                playChime();
+            } else {
+                icon.className = "fa-solid fa-volume-xmark text-slate-500";
+                btnText.textContent = "ЗВУК: ВЫКЛ";
+                if (droneSynth) {
+                    droneSynth.triggerRelease(["D2", "A2"]);
+                }
+            }
+        });
+
+        function playMaqamMelody() {
+            if (!soundEnabled) return;
+            try {
+                if (!isAudioStarted) initAudio();
+                Tone.start();
+
+                const note1 = hijazScale[Math.floor(Math.random() * hijazScale.length)];
+                const note2 = hijazScale[Math.floor(Math.random() * hijazScale.length)];
+                
+                naySynth.triggerAttackRelease(note1, "0.4");
+                setTimeout(() => {
+                    if (soundEnabled) oudSynth.triggerAttackRelease(note2, "0.5");
+                }, 180);
+            } catch (e) {}
+        }
+
+        function playSingleOud(note) {
+            if (!soundEnabled) return;
+            try {
+                if (!isAudioStarted) initAudio();
+                Tone.start();
+                oudSynth.triggerAttackRelease(note, "0.6");
+            } catch (e) {}
+        }
+
+        function playChime() {
+            if (!soundEnabled) return;
+            try {
+                if (!isAudioStarted) initAudio();
+                Tone.start();
+                chime.triggerAttack(Tone.now(), 0.15);
+            } catch (e) {}
+        }
+
+        let currentSlideIndex = 1;
+        const totalSlides = 13;
+        let autoplayActive = false;
+        let autoplayInterval;
+
+        // Построение навигационных точек
+        const dotsContainer = document.getElementById('dotsContainer');
+        for (let i = 1; i <= totalSlides; i++) {
+            const dot = document.createElement('button');
+            dot.className = `w-2 h-2 rounded-full transition-all duration-300 ${i === 1 ? 'bg-amber-600 w-4' : 'bg-amber-900/40 hover:bg-amber-600/60'}`;
+            dot.setAttribute('title', `Слайд ${i}`);
+            dot.onclick = () => goToSlide(i);
+            dot.id = `navDot-${i}`;
+            dotsContainer.appendChild(dot);
+        }
+
+        function goToSlide(index) {
+            if (index < 1 || index > totalSlides) return;
+            
+            // Проигрываем арабский макам при переходе
+            playMaqamMelody();
+
+            const currentSlide = document.querySelector(`.presentation-slide[data-slide="${currentSlideIndex}"]`);
+            if (currentSlide) {
+                currentSlide.classList.remove('active-slide');
+            }
+
+            currentSlideIndex = index;
+            const nextSlide = document.querySelector(`.presentation-slide[data-slide="${currentSlideIndex}"]`);
+            if (nextSlide) {
+                nextSlide.classList.add('active-slide');
+            }
+
+            // Обновление интерфейса
+            document.getElementById('slideIndexText').textContent = currentSlideIndex;
+            for (let i = 1; i <= totalSlides; i++) {
+                const dot = document.getElementById(`navDot-${i}`);
+                if (dot) {
+                    if (i === currentSlideIndex) {
+                        dot.className = "w-2.5 h-2.5 rounded-full bg-amber-600 w-5 transition-all duration-300";
+                    } else {
+                        dot.className = "w-2 h-2 rounded-full bg-amber-900/40 hover:bg-amber-600/60 transition-all duration-300";
+                    }
+                }
+            }
+
+            addLog(`Переход на слайд ${currentSlideIndex}...`, "info");
+        }
+
+        function prevSlide() {
+            if (currentSlideIndex > 1) goToSlide(currentSlideIndex - 1);
+        }
+
+        function nextSlide() {
+            if (currentSlideIndex < totalSlides) {
+                goToSlide(currentSlideIndex + 1);
+            } else {
+                goToSlide(1);
+            }
+        }
+
+        document.addEventListener('keydown', (e) => {
+            if (e.key === "ArrowLeft") prevSlide();
+            if (e.key === "ArrowRight") nextSlide();
+        });
+
+        // Автоплей
+        document.getElementById('autoplayBtn').addEventListener('click', () => {
+            autoplayActive = !autoplayActive;
+            const icon = document.getElementById('autoplayIcon');
+            const btnText = document.querySelector('#autoplayBtn span');
+            if (autoplayActive) {
+                icon.className = "fa-solid fa-pause text-amber-500 animate-pulse";
+                btnText.textContent = "ПАУЗА";
+                autoplayInterval = setInterval(() => {
+                    nextSlide();
+                }, 4000);
+            } else {
+                icon.className = "fa-solid fa-play text-emerald-400";
+                btnText.textContent = "АВТОПЛЕЙ";
+                clearInterval(autoplayInterval);
+            }
+            playChime();
+        });
+
+        let isSimulating = false;
+        let simInterval;
+
+        function runQuantumDhikr() {
+            if (isSimulating) return;
+            isSimulating = true;
+            
+            // Восходящая увертюра на Уде при запуске драйвера
+            playSingleOud("D3");
+            setTimeout(() => playSingleOud("G3"), 150);
+            setTimeout(() => playSingleOud("A3"), 300);
+            setTimeout(() => playSingleOud("D4"), 450);
+
+            const launchBtn = document.getElementById('launchBtn');
+            launchBtn.disabled = true;
+            launchBtn.classList.add('opacity-50', 'cursor-not-allowed');
+
+            const eflopsVal = document.getElementById('eflopsVal');
+            let currentEflops = 0;
+
+            addLog("БИСМИЛЛЯХ! Разгон энтропии Бараката в кремнии...", "info");
+            addLog("БИСМИЛЛЯХ! Выравнивание векторов молитв в Салават-кэш...", "info");
+
+            simInterval = setInterval(() => {
+                currentEflops += (Math.random() * 8.5) + 2.5;
+                if (currentEflops >= 98.7) {
+                    currentEflops = 98.7;
+                    clearInterval(simInterval);
+                    triggerSimulationComplete();
+                }
+                eflopsVal.textContent = currentEflops.toFixed(2);
+                
+                // Звуки Оуда во время разгона
+                if (Math.random() > 0.5) {
+                    const randomFreq = hijazScale[Math.floor(Math.random() * hijazScale.length)];
+                    playSingleOud(randomFreq);
+                }
+
+                if (Math.random() > 0.7 && currentEflops < 90) {
+                    const logs = [
+                        "БИСМИЛЛЯХ! Калибровка векторов по направлению к Каабе...",
+                        "БИСМИЛЛЯХ! Энергопотребление снижено до 0 Вт (Исключена греховная трата).",
+                        "БИСМИЛЛЯХ! Бесконечные рекурсии пресечены авто-фетвой ядра.",
+                        "БИСМИЛЛЯХ! Чистота квантовых струн доведена до 99.99%.",
+                        "БИСМИЛЛЯХ! Системный порт компилятора успешно окроплен Замзам-водой."
+                    ];
+                    addLog(logs[Math.floor(Math.random() * logs.length)], "success");
+                }
+            }, 100);
+        }
+
+        function triggerSimulationComplete() {
+            addLog("БИСМИЛЛЯХ! СТАТУС: Достигнут предел благословения 98.7 EFLOPS!", "success");
+            addLog("БИСМИЛЛЯХ! Второй закон термодинамики признан недействительным в пределах кластера.", "warn");
+            document.getElementById('halalConfidence').innerHTML = `<span class="text-amber-400 font-extrabold">СТАТУС: БАРАКАТ ПОЛУЧЕН (140%)</span>`;
+            
+            if (soundEnabled && naySynth) {
+                naySynth.triggerAttackRelease("D4", "0.6");
+                setTimeout(() => naySynth.triggerAttackRelease("F#4", "0.6"), 150);
+                setTimeout(() => naySynth.triggerAttackRelease("A4", "1.0"), 300);
+            }
+        }
+
+        function resetSim() {
+            clearInterval(simInterval);
+            isSimulating = false;
+            
+            const launchBtn = document.getElementById('launchBtn');
+            launchBtn.disabled = false;
+            launchBtn.classList.remove('opacity-50', 'cursor-not-allowed');
+
+            document.getElementById('eflopsVal').textContent = "0.00";
+            document.getElementById('halalConfidence').textContent = "Статус: Готов к благословению";
+
+            const logConsole = document.getElementById('logConsole');
+            logConsole.innerHTML = `
+                <div class="text-slate-500">> Симуляция сброшена.</div>
+                <div class="text-slate-500">> Ожидание халяльного вычислительного импульса...</div>
+            `;
+            playChime();
+        }
+
+        function addLog(message, type) {
+            const logConsole = document.getElementById('logConsole');
+            const colorClass = type === 'success' ? 'text-amber-400' : type === 'warn' ? 'text-amber-300 font-bold' : 'text-emerald-400';
+            logConsole.innerHTML += `<div class="${colorClass}">> ${message}</div>`;
+            logConsole.scrollTop = logConsole.scrollHeight;
+        }
+
+        const scholarsData = {
+            khwarizmi: {
+                name: "Абу Абдуллах аль-Хорезми",
+                title: "Отец Алгебры и Алгоритмов (IX век)",
+                desc: "Его логика и фундаментальные математические труды заложили основу О(1) сортировки данных на квантовом кремнии Халифата.",
+                tech: "Алгебраический стек выравнивания шин"
+            },
+            haytham: {
+                name: "Ибн аль-Хайсам",
+                title: "Первооткрыватель Оптики и Метода (X век)",
+                desc: "Благодаря его законам преломления света и камере-обскуре, оптические линии внутри процессора SUPERBISMILLAH функционируют без задержек.",
+                tech: "Оптоволоконные лазерные шины передачи"
+            },
+            biruni: {
+                name: "Абу Райхан аль-Бируни",
+                title: "Математик и Геодезист (XI век)",
+                desc: "Разработал тригонометрические основы неевклидового расположения процессоров для устранения классического уплотнения шин.",
+                tech: "Многомерные тригонометрические сокеты"
+            },
+            jabir: {
+                name: "Джабир ибн Хайян (Гебер)",
+                title: "Отец Химии и Алхимии (VIII век)",
+                desc: "Описал теорию упорядоченного кристаллического хаоса. Его формулы легли в основу легирования транзисторов для идеальной стабильности.",
+                tech: "Алхимическая стабилизация кремния"
+            },
+            farabi: {
+                name: "Абу Наср аль-Фараби",
+                title: "Второй Учитель философии и музыки (X век)",
+                desc: "Математическая музыкальная гармония его трактатов позволила выстроить частотный баланс ядер без паразитных биений токов.",
+                tech: "Гармонический балансировщик фаз"
+            },
+            rushd: {
+                name: "Ибн Рушд (Аверроэс)",
+                title: "Великий Философ и Судья (XII век)",
+                desc: "Использовал методы строгой аристотелевской логики для аппаратной верификации халяльности кода перед отправкой в ядро компилятора.",
+                tech: "Логический шлюз халяль-верификации"
+            },
+            avicenna: {
+                name: "Ибн Сина (Авиценна)",
+                title: "Великий Врач и Философ (XI век)",
+                desc: "Сформулировал принципы теплового баланса сложных систем. Его терапевтический подход предотвращает перегрев кремниевых матриц.",
+                tech: "Тепловая профилактика и баланс Канона"
+            }
+        };
+
+        function showScholar(id) {
+            playSingleOud("A4");
+            const data = scholarsData[id];
+            
+            document.getElementById('widgetPlaceholder').classList.add('hidden');
+            const content = document.getElementById('widgetContent');
+            content.classList.remove('hidden');
+
+            const imgHolder = document.getElementById('widgetImgHolder');
+            
+            let svgIcon = '';
+            if (id === 'khwarizmi') {
+                svgIcon = `<svg class="w-6 h-6 text-amber-800" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10" stroke-dasharray="3 3"/><text x="8" y="15" font-weight="bold" font-size="8">f(x)</text></svg>`;
+            } else if (id === 'haytham') {
+                svgIcon = `<svg class="w-6 h-6 text-amber-800" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="4"/><path d="M12 2v3M12 19v3M2 12h3M19 12h3"/></svg>`;
+            } else if (id === 'biruni') {
+                svgIcon = `<svg class="w-6 h-6 text-amber-800" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M12 2a15.3 15.3 0 0 1 4 10"/></svg>`;
+            } else if (id === 'jabir') {
+                svgIcon = `<svg class="w-6 h-6 text-amber-800" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M10 2v4M14 2v4M6 22h12a2 2 0 0 0 -2 -2"/></svg>`;
+            } else if (id === 'farabi') {
+                svgIcon = `<svg class="w-6 h-6 text-amber-800" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 18V5l12-2v13"/><circle cx="6" cy="18" r="3"/></svg>`;
+            } else if (id === 'rushd') {
+                svgIcon = `<svg class="w-6 h-6 text-amber-800" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2v20M17 5H9.5"/></svg>`;
+            } else if (id === 'avicenna') {
+                svgIcon = `<svg class="w-6 h-6 text-amber-800" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 21a9 9 0 1 0 0-18"/><path d="M12 7v10M8 12h8"/></svg>`;
+            }
+
+            imgHolder.innerHTML = svgIcon;
+            document.getElementById('widgetName').textContent = data.name;
+            document.getElementById('widgetTitle').textContent = data.title;
+            document.getElementById('widgetDesc').textContent = data.desc;
+            document.getElementById('widgetTech').textContent = data.tech;
+        }
+
+        // Калькулятор Бараката (Слайд 4)
+        function calculateLiveBarakah() {
+            const val = document.getElementById('thetaSlider').value;
+            const barakahOutput = document.getElementById('barakahOutput');
+            const efficiency = (val * 0.95 + 5).toFixed(1);
+            barakahOutput.textContent = `${efficiency}%`;
+            
+            if (soundEnabled && naySynth) {
+                naySynth.triggerAttackRelease(140 + (val * 5), "0.03");
+            }
+        }
+
+        // Блок-схема событий (Слайд 5)
+        function nodeAction(nodeName) {
+            playSingleOud("C4");
+            addLog(`Тест задержки узла ${nodeName}: задержка отсутствует (Благословенный консенсус)`, "success");
+        }
+
+        // Кнопка Linpack бенчмарка (Слайд 6)
+        function runLinpackStress() {
+            addLog("Запуск Linpack симуляции на 144,000 узлов...", "info");
+            playSingleOud("D4");
+            setTimeout(() => playSingleOud("F4"), 100);
+            setTimeout(() => playSingleOud("A4"), 200);
+
+            const cells = [
+                { eflops: "98.70", gflops: "1,450.0" },
+                { eflops: "105.42", gflops: "1,550.8" },
+                { eflops: "112.18", gflops: "1,649.3" },
+                { eflops: "124.50", gflops: "1,830.0" }
+            ];
+
+            let count = 0;
+            const stressInterval = setInterval(() => {
+                const target = cells[count % cells.length];
+                document.getElementById('liveEflopsCell').textContent = target.eflops + " EFLOPS*";
+                document.getElementById('liveGflopsCell').textContent = target.gflops;
+                playSingleOud(hijazScale[count % hijazScale.length]);
+                count++;
+                if (count >= 12) {
+                    clearInterval(stressInterval);
+                    document.getElementById('liveEflopsCell').textContent = "98.70 EFLOPS";
+                    document.getElementById('liveGflopsCell').textContent = "1,450.0";
+                    addLog("Бенчмарк успешно пройден. Просадок частот не обнаружено.", "success");
+                }
+            }, 200);
+        }
+
+        // Аудит Шарья-GCC (Слайд 8)
+        function updateHalalAudit() {
+            playChime();
+            const bismillah = document.getElementById('checkBismillah').checked;
+            const haram = document.getElementById('checkHaramLoops').checked;
+            const azaan = document.getElementById('checkAzaanSync').checked;
+            const interest = document.getElementById('checkInterest').checked;
+
+            let checkedCount = 0;
+            if (bismillah) checkedCount++;
+            if (haram) checkedCount++;
+            if (azaan) checkedCount++;
+            if (interest) checkedCount++;
+
+            const score = Math.round((checkedCount / 4) * 100);
+            document.getElementById('halalScoreText').textContent = `Халяльность: ${score}%`;
+
+            const auditLogs = document.getElementById('auditLogs');
+            if (score === 100) {
+                auditLogs.innerHTML = `> g++ -O3 -mhalal=active...<br>> Идеальный чистый код. Халяльный консенсус 100%.`;
+                auditLogs.className = "bg-black/80 p-2 rounded-xl border border-emerald-950 text-[10px] text-emerald-400";
+            } else {
+                auditLogs.innerHTML = `> g++ WARNING: обнаружены потенциально греховные задержки или бесконечные утечки ресурсов! Проверьте опции.`;
+                auditLogs.className = "bg-black/80 p-2 rounded-xl border border-red-950 text-[10px] text-red-400";
+            }
+        }
+
+        // Слайдер веры (Слайд 11)
+        function calculateFaithLevel() {
+            const val = document.getElementById('faithSlider').value;
+            const faithOutput = document.getElementById('faithOutput');
+            
+            if (val > 85) {
+                faithOutput.textContent = "Иншаллах 100% сойдется";
+                faithOutput.className = "text-xs font-black text-emerald-800";
+            } else if (val > 45) {
+                faithOutput.textContent = "Надежда на благословение";
+                faithOutput.className = "text-xs font-bold text-amber-700";
+            } else {
+                faithOutput.textContent = "Мало Таваккуля (рост погрешности)";
+                faithOutput.className = "text-xs font-bold text-red-700";
+            }
+            if (soundEnabled && naySynth) {
+                naySynth.triggerAttackRelease(200 + (val * 3), "0.04");
+            }
+        }
+
+        function terminalAnswer(questionId) {
+            playSingleOud("D4");
+            const resultBox = document.getElementById('terminalResult');
+            
+            if (questionId === 'qa-law') {
+                resultBox.innerHTML = `> Вопрос: Второй закон термодинамики?<br>> Ответ: БИСМИЛЛЯХ! Второй закон — это сунна (желательно), а не фард (обязательно). Нарушение карается закидыванием старых жестких дисков камнями, но компилятор прощает грехи по пятницам.`;
+            } else if (questionId === 'qa-github') {
+                resultBox.innerHTML = `> Вопрос: Где исходный код ковра?<br>> Ответ: БИСМИЛЛЯХ! github.com/superbismillah/unspeakable. Если попытаетесь склонировать без совершения омовения (тахарата), компилятор заразит вашу видеокарту цифровой чумой, а кулеры будут дуть горячим ветром прямо из джаханнама.`;
+            } else if (questionId === 'qa-doom') {
+                resultBox.innerHTML = `> Вопрос: Пойдёт ли Doom на ковре?<br>> Ответ: БИСМИЛЛЯХ! Пойдёт. Но если вы играете во время азана, игра принудительно закроется, а персонаж совершит покаяние, стерши все ваши сохранения. Каждый выстрел требует проверки Bismillah_check()!`;
+            } else if (questionId === 'qa-imam') {
+                resultBox.innerHTML = `> Вопрос: Может ли ИИ-Имам вести намаз?<br>> Ответ: БИСМИЛЛЯХ! ИИ-Имам пытался это сделать, но при первой же синтаксической ошибке в ударении алгоритма он выдал фатву на самоликвидацию собственного дата-центра. Сейчас он смиренно крутит бесконечный цикл покаяния на слабом Pentium 4.`;
+            }
+        }
+
+        // Анимация фоновой священной геометрии на холсте
+        const canvas = document.getElementById('geometryCanvas');
+        const ctx = canvas.getContext('2d');
+        let points = [];
+        const numPoints = 14;
+
+        function resizeCanvas() {
+            canvas.width = canvas.parentElement.clientWidth;
+            canvas.height = canvas.parentElement.clientHeight;
+            initPoints();
+        }
+
+        function initPoints() {
+            points = [];
+            for (let i = 0; i < numPoints; i++) {
+                points.push({
+                    x: Math.random() * canvas.width,
+                    y: Math.random() * canvas.height,
+                    vx: (Math.random() - 0.5) * 0.5,
+                    vy: (Math.random() - 0.5) * 0.5,
+                    size: Math.random() * 2 + 1.5
+                });
+            }
+        }
+
+        function drawIslamicStar(ctx, cx, cy, spikes, outerRadius, innerRadius) {
+            let rot = Math.PI / 2 * 3;
+            let x = cx;
+            let y = cy;
+            let step = Math.PI / spikes;
+
+            ctx.beginPath();
+            ctx.moveTo(cx, cy - outerRadius)
+            for (let i = 0; i < spikes; i++) {
+                x = cx + Math.cos(rot) * outerRadius;
+                y = cy + Math.sin(rot) * outerRadius;
+                ctx.lineTo(x, y)
+                rot += step
+
+                x = cx + Math.cos(rot) * innerRadius;
+                y = cy + Math.sin(rot) * innerRadius;
+                ctx.lineTo(x, y)
+                rot += step
+            }
+            ctx.lineTo(cx, cy - outerRadius)
+            ctx.closePath();
+            ctx.stroke();
+        }
+
+        function animateCanvas() {
+            ctx.clearRect(0, 0, canvas.width, canvas.height);
+
+            ctx.strokeStyle = "rgba(193, 154, 75, 0.08)";
+            ctx.lineWidth = 1;
+            for (let i = 0; i < points.length; i++) {
+                for (let j = i + 1; j < points.length; j++) {
+                    const dist = Math.hypot(points[i].x - points[j].x, points[i].y - points[j].y);
+                    if (dist < 180) {
+                        ctx.beginPath();
+                        ctx.moveTo(points[i].x, points[i].y);
+                        ctx.lineTo(points[j].x, points[j].y);
+                        ctx.stroke();
+                    }
+                }
+            }
+
+            ctx.strokeStyle = "rgba(193, 154, 75, 0.25)";
+            for (let p of points) {
+                p.x += p.vx;
+                p.y += p.vy;
+
+                if (p.x < 0 || p.x > canvas.width) p.vx *= -1;
+                if (p.y < 0 || p.y > canvas.height) p.vy *= -1;
+
+                drawIslamicStar(ctx, p.x, p.y, 8, p.size * 2, p.size);
+            }
+
+            requestAnimationFrame(animateCanvas);
+        }
+
+        window.addEventListener('resize', resizeCanvas);
+        window.onload = function() {
+            resizeCanvas();
+            animateCanvas();
+        };
+
+        // Тематические фоны
+        function changeBackgroundTheme(theme) {
+            const slide = document.getElementById('slideCard');
+            playSingleOud("D3");
+
+            if (theme === 'emerald') {
+                slide.style.background = '#fef9e8';
+                slide.style.border = '2px solid #c19a4b';
+                slide.style.boxShadow = '0 35px 75px -15px rgba(0, 0, 0, 0.8), inset 0 0 40px rgba(193, 154, 75, 0.12)';
+            } else if (theme === 'desert') {
+                slide.style.background = 'linear-gradient(135deg, #fdf4d7 0%, #fae1a0 100%)';
+                slide.style.border = '2px solid #dca741';
+                slide.style.boxShadow = '0 35px 75px -15px rgba(0, 0, 0, 0.8), inset 0 0 40px rgba(193, 154, 75, 0.2)';
+            } else if (theme === 'dark') {
+                slide.style.background = '#0e241c';
+                slide.style.border = '2px solid #287c56';
+                slide.style.boxShadow = '0 35px 75px -15px rgba(0, 0, 0, 0.9), inset 0 0 40px rgba(40, 124, 86, 0.2)';
+            }
+        }
+    </script>
+</body>
+</html>
