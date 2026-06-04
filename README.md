@@ -15,7 +15,7 @@
   * **НИУ ВШЭ**
 
 * **Review Track & Preprints**:
-  * **Core Conferences**: Принято на мейнтреки **NeurIPS 2026** (*«SuperBismillah: Pure Neural Topologies and Devotion in Deep Learning Platforms»*) — [[Псевдо-ссылка на NeurIPS]](https://conferences.neurips.cc/papers/2026/superbismillah) и **ICLR 2026** Oral Presentation — [[Псевдо-ссылка на ICLR]](https://iclr.cc/virtual/2026/oral/superbismillah).
+  * **Core Conferences**: Принято на мейнтреки **NeurIPS 2026** (*«SuperBismillah: Pure Neural Topologies and Devotion in Deep Learning Platforms»*) — [[ссылка на NeurIPS]](https://conferences.neurips.cc/papers/2026/superbismillah) и **ICLR 2026** Oral Presentation — [[ссылка на ICLR]](https://iclr.cc/virtual/2026/oral/superbismillah).
   * **arXiv Preprint**: Теоретическое обоснование сходимости к Глобальному Максимуму — [[arXiv:2606.18565 [cs.LG]]](https://arxiv.org/abs/2606.18565).
 
 ---
